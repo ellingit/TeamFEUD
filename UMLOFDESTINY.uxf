@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="12.2">
+<diagram program="umlet" version="12.1">
   <zoom_level>10</zoom_level>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>2200</x>
-      <y>10</y>
+      <y>0</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -23,7 +23,7 @@ respond(String response) : void</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1860</x>
-      <y>10</y>
+      <y>0</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -43,7 +43,7 @@ processor : WordProcessor
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1440</x>
-      <y>10</y>
+      <y>0</y>
       <w>240</w>
       <h>190</h>
     </coordinates>
@@ -59,7 +59,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1280</x>
-      <y>510</y>
+      <y>500</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -68,6 +68,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
 --
 /-word : String/
 --
+/Word(String word)/
 /+getWord() : String/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -75,7 +76,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>240</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -83,6 +84,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
 --
 /-word : String/
 --
+Noun(String word)
 /+getWord() : String/
 
 </panel_attributes>
@@ -92,7 +94,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>490</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -100,6 +102,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
 --
 /-word : String/
 --
+Verb(String word)
 /+getWord() : String/
 </panel_attributes>
     <additional_attributes/>
@@ -108,7 +111,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1860</x>
-      <y>240</y>
+      <y>230</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -123,7 +126,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1860</x>
-      <y>510</y>
+      <y>500</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -138,7 +141,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>2410</x>
-      <y>620</y>
+      <y>610</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -154,7 +157,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>990</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -163,6 +166,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
 --
 /-word : String/
 --
+Preposition(String word)
 /+getWord() : String/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -170,7 +174,7 @@ sentrofizzle() : ArrayList&lt;String&gt;</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1440</x>
-      <y>240</y>
+      <y>230</y>
       <w>240</w>
       <h>190</h>
     </coordinates>
@@ -186,7 +190,7 @@ setenceParser() : void
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>740</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -194,6 +198,7 @@ setenceParser() : void
 --
 /-word : String/
 --
+Article(String word)
 /+getWord() : String/
 </panel_attributes>
     <additional_attributes/>
@@ -202,15 +207,16 @@ setenceParser() : void
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1230</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
-    <panel_attributes>NLP::Interrogatives
+    <panel_attributes>NLP::Interrogative
 
 --
 /-word : String/
 --
+Interrogative(String word)
 /+getWord() : String/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -218,7 +224,7 @@ setenceParser() : void
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1470</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -226,6 +232,7 @@ setenceParser() : void
 --
 /-word : String/
 --
+Interjection(String word)
 /+getWord() : String/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -233,7 +240,7 @@ setenceParser() : void
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -241,6 +248,7 @@ setenceParser() : void
 --
 /-word : String/
 --
+Pronoun(String word)
 /+getWord() : String/
 </panel_attributes>
     <additional_attributes/>
@@ -248,8 +256,8 @@ setenceParser() : void
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1950</x>
-      <y>990</y>
+      <x>1940</x>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -257,6 +265,7 @@ setenceParser() : void
 --
 /-word : String/
 --
+Adverb(String word)
 /+getWord() : String/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -264,7 +273,7 @@ setenceParser() : void
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1720</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -272,6 +281,7 @@ setenceParser() : void
 --
 /-word : String/
 --
+Adjective(String word)
 /+getWord() : String/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -279,7 +289,7 @@ setenceParser() : void
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>480</x>
-      <y>1310</y>
+      <y>1300</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -295,7 +305,7 @@ setenceParser() : void
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>2690</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -310,7 +320,7 @@ getPhrase : ArrayList&lt;Word</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>2450</x>
-      <y>990</y>
+      <y>980</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -326,7 +336,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>2040</x>
-      <y>90</y>
+      <y>80</y>
       <w>180</w>
       <h>50</h>
     </coordinates>
@@ -337,7 +347,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1650</x>
-      <y>90</y>
+      <y>80</y>
       <w>230</w>
       <h>50</h>
     </coordinates>
@@ -348,7 +358,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1500</x>
-      <y>170</y>
+      <y>160</y>
       <w>50</w>
       <h>90</h>
     </coordinates>
@@ -359,7 +369,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1650</x>
-      <y>90</y>
+      <y>80</y>
       <w>230</w>
       <h>190</h>
     </coordinates>
@@ -370,7 +380,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1930</x>
-      <y>170</y>
+      <y>160</y>
       <w>50</w>
       <h>90</h>
     </coordinates>
@@ -381,7 +391,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1890</x>
-      <y>400</y>
+      <y>390</y>
       <w>130</w>
       <h>130</h>
     </coordinates>
@@ -393,7 +403,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1460</x>
-      <y>360</y>
+      <y>350</y>
       <w>420</w>
       <h>230</h>
     </coordinates>
@@ -405,7 +415,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>2040</x>
-      <y>360</y>
+      <y>350</y>
       <w>390</w>
       <h>320</h>
     </coordinates>
@@ -417,7 +427,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>2440</x>
-      <y>780</y>
+      <y>770</y>
       <w>140</w>
       <h>230</h>
     </coordinates>
@@ -429,7 +439,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>2520</x>
-      <y>780</y>
+      <y>770</y>
       <w>290</w>
       <h>230</h>
     </coordinates>
@@ -441,7 +451,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>140</x>
-      <y>640</y>
+      <y>630</y>
       <w>1160</w>
       <h>370</h>
     </coordinates>
@@ -453,7 +463,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>360</x>
-      <y>660</y>
+      <y>650</y>
       <w>940</w>
       <h>350</h>
     </coordinates>
@@ -465,7 +475,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>610</x>
-      <y>670</y>
+      <y>660</y>
       <w>710</w>
       <h>340</h>
     </coordinates>
@@ -477,7 +487,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>870</x>
-      <y>670</y>
+      <y>660</y>
       <w>470</w>
       <h>340</h>
     </coordinates>
@@ -489,7 +499,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1120</x>
-      <y>670</y>
+      <y>660</y>
       <w>250</w>
       <h>340</h>
     </coordinates>
@@ -501,7 +511,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1300</x>
-      <y>670</y>
+      <y>660</y>
       <w>140</w>
       <h>340</h>
     </coordinates>
@@ -513,7 +523,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1400</x>
-      <y>670</y>
+      <y>660</y>
       <w>190</w>
       <h>340</h>
     </coordinates>
@@ -525,7 +535,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1440</x>
-      <y>670</y>
+      <y>660</y>
       <w>370</w>
       <h>340</h>
     </coordinates>
@@ -537,19 +547,19 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1460</x>
-      <y>630</y>
-      <w>570</w>
+      <y>620</y>
+      <w>560</w>
       <h>380</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>30;30;550;360</additional_attributes>
+    <additional_attributes>30;30;540;360</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>560</x>
-      <y>1150</y>
+      <y>1140</y>
       <w>130</w>
       <h>180</h>
     </coordinates>
@@ -561,7 +571,7 @@ getPhrase : ArrrayList&lt;Word&gt;
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>2230</x>
-      <y>240</y>
+      <y>230</y>
       <w>310</w>
       <h>250</h>
     </coordinates>
@@ -587,7 +597,7 @@ surtch(File current) : boolean</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>2040</x>
-      <y>90</y>
+      <y>80</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -598,7 +608,7 @@ surtch(File current) : boolean</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1180</x>
-      <y>300</y>
+      <y>290</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -609,7 +619,7 @@ surtch(File current) : boolean</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1250</x>
-      <y>260</y>
+      <y>250</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
