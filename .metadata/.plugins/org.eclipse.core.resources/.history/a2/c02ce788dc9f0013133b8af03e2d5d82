@@ -12,4 +12,5 @@ public class WordProcessor {
 	public void run(){
 		ci.output("Hello");
 	}
+
 }

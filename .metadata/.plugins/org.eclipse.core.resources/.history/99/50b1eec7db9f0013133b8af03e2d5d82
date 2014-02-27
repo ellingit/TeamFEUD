@@ -1,7 +1,7 @@
 package nlp_data_structure;
 
 public abstract class Word extends PartOfSpeech {
-	public final String word;
+	protected final String word;
 	
 	public Word(String contents){
 		word = contents;

@@ -10,6 +10,7 @@ public class WordProcessor {
 	private ConsoleInteraction ci = new ConsoleInteraction();
 	
 	public void run(){
-		ci.output("Hello");
+		
 	}
+
 }
