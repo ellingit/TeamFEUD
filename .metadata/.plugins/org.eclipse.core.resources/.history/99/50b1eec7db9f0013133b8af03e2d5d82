@@ -1,9 +1,0 @@
-package nlp_data_structure;
-
-public abstract class Word extends PartOfSpeech {
-	protected final String word;
-	
-	public Word(String contents){
-		word = contents;
-	}
-}
