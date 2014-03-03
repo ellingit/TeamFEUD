@@ -1,11 +1,15 @@
 package nlp_control;
 
+import java.util.ArrayList;
+
 import nlp_data_structure.FileIO;
+import nlp_data_structure.Word;
 import nlp_data_structure.WordStack;
 import nlp_ui.ConsoleInteraction;
 
 public class WordProcessor {
 	private WordStack ws = new WordStack();
+	private ArrayList<Word> words = new ArrayList<>();
 	private FileIO io = new FileIO();
 	private ConsoleInteraction ci = new ConsoleInteraction();
 	private String input;
@@ -21,8 +25,12 @@ public class WordProcessor {
 		for(String s : parsedInput){
 			if(s.charAt(s.length()-1) < 65){//finds punctuation attached to the end of words
 				//do something with the punctuation
+				char punctuation = s.charAt(s.length()-1);
+				s = s.substring(0, s.length()-1);
 			}
 		}
-		
+		for(String t : parsedInput){
+			words.add(io.wrapWord(t));
+		}
 	}
 }
