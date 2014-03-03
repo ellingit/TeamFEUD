@@ -28,7 +28,7 @@ public class WordProcessor {
 			}
 		}
 		for(String t : parsedInput){
-			words.add(io.wrapWord(t));
+			words.add(io.findInDictionary(t));
 		}
 	}
 }

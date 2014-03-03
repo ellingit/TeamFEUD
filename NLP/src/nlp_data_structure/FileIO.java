@@ -2,6 +2,7 @@ package nlp_data_structure;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 public class FileIO {
@@ -10,15 +11,14 @@ public class FileIO {
 	private File articles = new File("articles.txt");
 	private File prepositions = new File("prepositions.txt");
 	private File punctuations = new File("punctuations.txt");
-<<<<<<< HEAD
 	private File[] wordTypes = new File[] {nouns, verbs,
             articles, prepositions, punctuations};
 
-    private PartOfSpeech findInDictionary(String wordToCheck) {
+    public PartOfSpeech findInDictionary(String wordToCheck) {
         PartOfSpeech returner = null;
         for(File file : wordTypes) {
             try {
-                if(Files.readAllLines(file.toPath()).contains(wordToCheck)) {
+                if(Files.readAllLines(file.toPath(), StandardCharsets.US_ASCII).contains(wordToCheck)) {
                     switch (file.getName()) {
                         case "nouns.txt":
                             returner = new Noun(wordToCheck);
@@ -40,11 +40,4 @@ public class FileIO {
         }
         return returner;
     }
-
-=======
-	
-	public PartOfSpeech wrapWord(String word){
-		
-	}
->>>>>>> 8b29355275838d368752864233a0783122ea6545
 }
