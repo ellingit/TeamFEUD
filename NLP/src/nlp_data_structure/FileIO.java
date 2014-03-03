@@ -9,8 +9,7 @@ public class FileIO {
 	private File prepositions = new File("prepositions.txt");
 	private File punctuations = new File("punctuations.txt");
 	
-	public boolean search(File toSearch){
-		boolean found = false;
-		return found;
+	public PartOfSpeech wrapWord(String word){
+		
 	}
 }

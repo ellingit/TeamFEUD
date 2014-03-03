@@ -2,14 +2,12 @@ package nlp_control;
 
 import java.util.ArrayList;
 
-import nlp_data_structure.FileIO;
-import nlp_data_structure.Word;
-import nlp_data_structure.WordStack;
+import nlp_data_structure.*;
 import nlp_ui.ConsoleInteraction;
 
 public class WordProcessor {
 	private WordStack ws = new WordStack();
-	private ArrayList<Word> words = new ArrayList<>();
+	private ArrayList<PartOfSpeech> words = new ArrayList<>();
 	private FileIO io = new FileIO();
 	private ConsoleInteraction ci = new ConsoleInteraction();
 	private String input;
