@@ -3,7 +3,7 @@ package nlp_control;
 public class Driver {
 
 	public static void main(String[] args) {
-
+		new WordProcessor().run();
 	}
 
 }

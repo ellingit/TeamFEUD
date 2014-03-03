@@ -8,4 +8,9 @@ public class FileIO {
 	private File articles = new File("articles.txt");
 	private File prepositions = new File("prepositions.txt");
 	private File punctuations = new File("punctuations.txt");
+	
+	public boolean search(File toSearch){
+		boolean found = false;
+		return found;
+	}
 }

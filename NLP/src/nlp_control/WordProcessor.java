@@ -8,8 +8,21 @@ public class WordProcessor {
 	private WordStack ws = new WordStack();
 	private FileIO io = new FileIO();
 	private ConsoleInteraction ci = new ConsoleInteraction();
+	private String input;
 	
 	public void run(){
 		ci.output("Hello");
+		ci.output("(type below to respond...)");
+		input = ci.getInput();
+	}
+	
+	private void parseInput(){
+		String[] parsedInput = input.split(" ");//splits the user input by spaces
+		for(String s : parsedInput){
+			if(s.charAt(s.length()-1) < 65){//finds punctuation attached to the end of words
+				//do something with the punctuation
+			}
+		}
+		
 	}
 }
