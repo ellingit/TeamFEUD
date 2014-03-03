@@ -1,6 +1,8 @@
 package nlp_data_structure;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 public class FileIO {
 <<<<<<< HEAD
@@ -15,6 +17,38 @@ public class FileIO {
 	private File articles = new File("articles.txt");
 	private File prepositions = new File("prepositions.txt");
 	private File punctuations = new File("punctuations.txt");
+<<<<<<< HEAD
+	private File[] wordTypes = new File[] {nouns, verbs,
+            articles, prepositions, punctuations};
+
+    private PartOfSpeech findInDictionary(String wordToCheck) {
+        PartOfSpeech returner = null;
+        for(File file : wordTypes) {
+            try {
+                if(Files.readAllLines(file.toPath()).contains(wordToCheck)) {
+                    switch (file.getName()) {
+                        case "nouns.txt":
+                            returner = new Noun(wordToCheck);
+                        case "verbs.txt":
+                            returner = new Verb(wordToCheck);
+                        case "articles.txt":
+                            returner = new Article(wordToCheck);
+                        case "prepositions.txt":
+                            returner = new Preposition(wordToCheck);
+                        case "punctuations.txt":
+                            returner = new Punctuation();
+                        default:
+                            returner = null;
+                    }
+                }
+            } catch (IOException e) {
+                System.out.print(e.getMessage());
+            }
+        }
+        return returner;
+    }
+
+=======
 	
 	public PartOfSpeech wrapWord(String word){
 		
