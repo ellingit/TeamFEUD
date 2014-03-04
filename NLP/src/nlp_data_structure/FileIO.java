@@ -1,7 +1,9 @@
 package nlp_data_structure;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
@@ -41,7 +43,7 @@ public class FileIO {
         return returner;
     }
 	
-	public append(String toAppend, String word){
+	public void append(String toAppend, String word){
 		try{
 			OutputStream fileOut = new FileOutputStream(toAppend, true);
 			fileOut.write(word.getBytes());
