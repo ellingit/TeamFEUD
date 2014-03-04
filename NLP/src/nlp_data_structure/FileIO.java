@@ -40,4 +40,14 @@ public class FileIO {
         }
         return returner;
     }
+	
+	public append(String toAppend, String word){
+		try{
+			OutputStream fileOut = new FileOutputStream(toAppend, true);
+			fileOut.write(word.getBytes());
+			fileOut.close();
+			} catch (Exception e) {
+				System.out.println("File append dint work nub.");
+			}
+	}
 }
