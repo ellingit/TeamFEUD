@@ -6,11 +6,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 public class FileIO {
-	private File nouns = new File("nouns.txt");
-	private File verbs = new File("verbs.txt");
-	private File articles = new File("articles.txt");
-	private File prepositions = new File("prepositions.txt");
-	private File punctuations = new File("punctuations.txt");
+	private File nouns = new File("Dictionary Files//nouns.txt");
+	private File verbs = new File("Dictionary Files//verbs.txt");
+	private File articles = new File("Dictionary Files//articles.txt");
+	private File prepositions = new File("Dictionary Files//prepositions.txt");
+	private File punctuations = new File("Dictionary Files//punctuations.txt");
 	private File[] wordTypes = new File[] {nouns, verbs,
             articles, prepositions, punctuations};
 
@@ -40,4 +40,14 @@ public class FileIO {
         }
         return returner;
     }
+	
+	public append(String toAppend, String word){
+		try{
+			OutputStream fileOut = new FileOutputStream(toAppend, true);
+			fileOut.write(word.getBytes());
+			fileOut.close();
+			} catch (Exception e) {
+				System.out.println("File append dint work nub.");
+			}
+	}
 }
