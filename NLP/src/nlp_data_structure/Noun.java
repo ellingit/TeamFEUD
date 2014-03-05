@@ -6,4 +6,8 @@ public class Noun extends Word {
 		super(contents);
 	}
 
+    @Override
+    public String getType() {
+        return "Noun";
+    }
 }

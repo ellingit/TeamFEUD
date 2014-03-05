@@ -6,4 +6,8 @@ public class Article extends Word {
 		super(contents);
 	}
 
+    @Override
+    public String getType() {
+        return "Article";
+    }
 }

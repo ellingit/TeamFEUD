@@ -1,5 +1,7 @@
 package nlp_data_structure;
 
+import com.sun.swing.internal.plaf.synth.resources.synth_sv;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,26 +20,32 @@ public class FileIO {
 
     public PartOfSpeech findInDictionary(String wordToCheck) {
         PartOfSpeech returner = null;
+        looping:
         for(File file : wordTypes) {
             try {
-                if(Files.readAllLines(file.toPath(), StandardCharsets.US_ASCII).contains(wordToCheck)) {
+                if(Files.readAllLines(file.toPath(), StandardCharsets.US_ASCII).contains(wordToCheck.toLowerCase())) {
                     switch (file.getName()) {
-                        case "nouns.txt":
+                        case "Dictionary Files//nouns.txt":
                             returner = new Noun(wordToCheck);
-                        case "verbs.txt":
+                            return returner;
+                        case "Dictionary Files//verbs.txt":
                             returner = new Verb(wordToCheck);
-                        case "articles.txt":
+                            return returner;
+                        case "Dictionary Files//articles.txt":
                             returner = new Article(wordToCheck);
-                        case "prepositions.txt":
+                            return returner;
+                        case "Dictionary Files//prepositions.txt":
                             returner = new Preposition(wordToCheck);
-                        case "punctuations.txt":
+                            return returner;
+                        case "Dictionary Files//punctuations.txt":
                             returner = new Punctuation();
+                            return returner;
                         default:
                             returner = null;
                     }
                 }
             } catch (IOException e) {
-                System.out.print(e.getMessage());
+                System.err.println(e.getLocalizedMessage());
             }
         }
         return returner;

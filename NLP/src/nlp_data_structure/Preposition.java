@@ -6,4 +6,8 @@ public class Preposition extends Word {
 		super(contents);
 	}
 
+    @Override
+    public String getType() {
+        return "Preposition";
+    }
 }

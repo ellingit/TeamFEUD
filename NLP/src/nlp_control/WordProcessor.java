@@ -17,9 +17,28 @@ public class WordProcessor {
 		ci.output("Hello");
 		ci.output("(type below to respond...)");
 		input = ci.getInput();
+        parseInput("Hello");
 	}
-	
-	private void parseInput(){
+// For testing purposes
+    private void parseInput(String test) {
+        String[] parsedInput = test.split(" ");//splits the user input by spaces
+        for(String s : parsedInput){
+            if(s.charAt(s.length()-1) < 65){//finds punctuation attached to the end of words
+                char punctuation = s.charAt(s.length()-1);
+                s = s.substring(0, s.length()-1) + " " + punctuation;
+            }
+        }
+        for(String wordToCheck : parsedInput){
+            PartOfSpeech pos = io.findInDictionary(wordToCheck);
+            if(pos != null) elements.add(pos);
+            else unknowns.add(wordToCheck);
+        }
+        for (PartOfSpeech element : elements) {
+            System.out.println(element.getType());
+        }
+    }
+
+    private void parseInput(){
 		String[] parsedInput = input.split(" ");//splits the user input by spaces
 		for(String s : parsedInput){
 			if(s.charAt(s.length()-1) < 65){//finds punctuation attached to the end of words
@@ -32,5 +51,8 @@ public class WordProcessor {
 			if(pos != null) elements.add(pos);
 			else unknowns.add(wordToCheck);
 		}
-	}
+        for (PartOfSpeech element : elements) {
+            System.out.println(element.getType());
+        }
+    }
 }

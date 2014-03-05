@@ -6,4 +6,8 @@ public class Verb extends Word {
 		super(contents);
 	}
 
+    @Override
+    public String getType() {
+        return "Verb";
+    }
 }
