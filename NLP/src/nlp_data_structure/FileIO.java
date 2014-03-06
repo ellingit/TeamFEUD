@@ -1,7 +1,5 @@
 package nlp_data_structure;
 
-import com.sun.swing.internal.plaf.synth.resources.synth_sv;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
