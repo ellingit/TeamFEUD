@@ -23,10 +23,12 @@ public class WordProcessor {
     private void parseInput(String test) {
         String[] parsedInput = test.split(" ");//splits the user input by spaces
         for(String s : parsedInput){
-            if(s.charAt(s.length()-1) < 65){//finds punctuation attached to the end of words
-                char punctuation = s.charAt(s.length()-1);
-                s = s.substring(0, s.length()-1) + " " + punctuation;
-            }
+            if (parsedInput.length >= 1) {
+				if (s.charAt(s.length() - 1) < 65) {//finds punctuation attached to the end of words
+					char punctuation = s.charAt(s.length() - 1);
+					s = s.substring(0, s.length() - 1) + " " + punctuation;
+				}
+			}
         }
         for(String wordToCheck : parsedInput){
             PartOfSpeech pos = io.findInDictionary(wordToCheck);
@@ -34,7 +36,7 @@ public class WordProcessor {
             else unknowns.add(wordToCheck);
         }
         for (PartOfSpeech element : elements) {
-            System.out.println(element);
+            System.out.println(element.getType());
         }
     }
 

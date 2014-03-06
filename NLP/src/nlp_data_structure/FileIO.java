@@ -25,7 +25,6 @@ public class FileIO {
                     switch (file.getName()) {
                         case "nouns.txt":
                             returner = new Noun(wordToCheck);
-                            System.out.println("NOUN!");
                             return returner;
                         case "verbs.txt":
                             returner = new Verb(wordToCheck);
