@@ -10,9 +10,9 @@ import java.nio.file.Files;
 public class FileIO {
 	private File nouns = new File("Dictionary Files//nouns.txt");
 	private File verbs = new File("Dictionary Files//verbs.txt");
-//	private File articles = new File("Dictionary Files//articles.txt");
+	private File articles = new File("Dictionary Files//articles.txt");
 	private File prepositions = new File("Dictionary Files//prepositions.txt");
-//	private File punctuations = new File("Dictionary Files//punctuations.txt");
+	private File punctuations = new File("Dictionary Files//punctuations.txt");
 	private File[] wordTypes = new File[] {nouns, verbs,
             prepositions};
 
@@ -29,15 +29,15 @@ public class FileIO {
                         case "verbs.txt":
                             returner = new Verb(wordToCheck);
                             return returner;
-//                        case "Dictionary Files//articles.txt":
-//                            returner = new Article(wordToCheck);
-//                            return returner;
+                        case "Dictionary Files//articles.txt":
+                            returner = new Article(wordToCheck);
+                            return returner;
                         case "prepositions.txt":
                             returner = new Preposition(wordToCheck);
                             return returner;
-//                        case "Dictionary Files//punctuations.txt":
-//                            returner = new Punctuation();
-//                            return returner;
+                        case "Dictionary Files//punctuations.txt":
+                            returner = new Punctuation();
+                            return returner;
                         default:
                         	System.out.println("nothing");
                             returner = null;
