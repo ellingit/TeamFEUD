@@ -17,7 +17,7 @@ public class WordProcessor {
 		ci.output("Hello");
 		ci.output("(type below to respond...)");
 		input = ci.getInput();
-        parseInput("Hello");
+        parseInput(input);
 	}
 // For testing purposes
     private void parseInput(String test) {
@@ -34,7 +34,7 @@ public class WordProcessor {
             else unknowns.add(wordToCheck);
         }
         for (PartOfSpeech element : elements) {
-            System.out.println(element.getType());
+            System.out.println(element);
         }
     }
 

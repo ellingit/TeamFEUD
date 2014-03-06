@@ -10,38 +10,40 @@ import java.nio.file.Files;
 public class FileIO {
 	private File nouns = new File("Dictionary Files//nouns.txt");
 	private File verbs = new File("Dictionary Files//verbs.txt");
-	private File articles = new File("Dictionary Files//articles.txt");
+//	private File articles = new File("Dictionary Files//articles.txt");
 	private File prepositions = new File("Dictionary Files//prepositions.txt");
-	private File punctuations = new File("Dictionary Files//punctuations.txt");
+//	private File punctuations = new File("Dictionary Files//punctuations.txt");
 	private File[] wordTypes = new File[] {nouns, verbs,
-            articles, prepositions, punctuations};
+            prepositions};
 
     public PartOfSpeech findInDictionary(String wordToCheck) {
         PartOfSpeech returner = null;
         looping:
         for(File file : wordTypes) {
             try {
-                if(Files.readAllLines(file.toPath(), StandardCharsets.US_ASCII).contains(wordToCheck.toLowerCase())) {
+                if(Files.readAllLines(file.toPath(), StandardCharsets.US_ASCII).contains(wordToCheck)) {
                     switch (file.getName()) {
-                        case "Dictionary Files//nouns.txt":
+                        case "nouns.txt":
                             returner = new Noun(wordToCheck);
+                            System.out.println("NOUN!");
                             return returner;
-                        case "Dictionary Files//verbs.txt":
+                        case "verbs.txt":
                             returner = new Verb(wordToCheck);
                             return returner;
-                        case "Dictionary Files//articles.txt":
-                            returner = new Article(wordToCheck);
-                            return returner;
-                        case "Dictionary Files//prepositions.txt":
+//                        case "Dictionary Files//articles.txt":
+//                            returner = new Article(wordToCheck);
+//                            return returner;
+                        case "prepositions.txt":
                             returner = new Preposition(wordToCheck);
                             return returner;
-                        case "Dictionary Files//punctuations.txt":
-                            returner = new Punctuation();
-                            return returner;
+//                        case "Dictionary Files//punctuations.txt":
+//                            returner = new Punctuation();
+//                            return returner;
                         default:
+                        	System.out.println("nothing");
                             returner = null;
                     }
-                }
+                } else System.out.println("it's not here");
             } catch (IOException e) {
                 System.err.println(e.getLocalizedMessage());
             }
