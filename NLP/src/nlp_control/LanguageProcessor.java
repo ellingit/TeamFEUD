@@ -21,7 +21,7 @@ public class LanguageProcessor {
 		this.inputList = input;
 	}
 	
-	private Sentence process() {
+	public Sentence process() {
 		return null;
 	}
 }
