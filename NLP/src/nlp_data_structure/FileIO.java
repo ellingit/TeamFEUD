@@ -42,7 +42,7 @@ public class FileIO {
                         	System.out.println("nothing");
                             returner = null;
                     }
-                } else System.out.println("it's not here");
+                }
             } catch (IOException e) {
                 System.err.println(e.getLocalizedMessage());
             }
