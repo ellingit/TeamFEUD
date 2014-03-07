@@ -48,6 +48,7 @@ public class LanguageProcessor {
 					VerbPhrase x = (VerbPhrase)stack.pop();
 					NounPhrase y = (NounPhrase)stack.pop();
 					stack.push(new Sentence(y,x));
+					
 				}
 				else if((stack.size() > 1)
 						&& (stack.get(stack.size()-2)) instanceof Article

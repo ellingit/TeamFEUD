@@ -15,9 +15,14 @@ public class AlgoTest {
 		
 		LinkedList<PartOfSpeech> LL = new LinkedList<PartOfSpeech>();
 		
-		LL.offer(new Article("a"));
-		LL.offer(new Noun("Dog"));
-		LL.offer(new Verb("Bites"));
+		LL.offer(new Article("The"));
+		LL.offer(new Noun("fish"));
+		LL.offer(new Verb("chases"));
+//		LL.offer(new Article("the"));
+//		LL.offer(new Noun("dog"));
+//		LL.offer(new Preposition("with"));
+//		LL.offer(new Article("the"));
+//		LL.offer(new Noun("cat"));
 		
 //		System.out.println(LL);
 //		
@@ -34,6 +39,7 @@ public class AlgoTest {
 		
 		lp = new LanguageProcessor(LL);
 		Sentence s = lp.process();
+		System.out.println(s);
 		System.out.println(s.getContentsByObject());
 	}
 }
