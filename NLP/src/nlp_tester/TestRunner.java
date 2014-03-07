@@ -2,6 +2,7 @@ package nlp_tester;
 
 import nlp_control.WordProcessor;
 import nlp_data_structure.FileIO;
+import nlp_data_structure.PartOfSpeech;
 
 /**
  * Created by Stephen on 3/5/14.
