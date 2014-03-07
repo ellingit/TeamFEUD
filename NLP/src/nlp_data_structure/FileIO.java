@@ -13,8 +13,8 @@ public class FileIO {
 	private File articles = new File("Dictionary Files//articles.txt");
 	private File prepositions = new File("Dictionary Files//prepositions.txt");
 	private File punctuations = new File("Dictionary Files//punctuations.txt");
-	private File[] wordTypes = new File[] {nouns, verbs,
-            prepositions};
+	private File[] wordTypes = new File[] {nouns, verbs, articles,
+            prepositions, punctuations};
 
     public PartOfSpeech findInDictionary(String wordToCheck) {
         PartOfSpeech returner = null;
@@ -29,13 +29,13 @@ public class FileIO {
                         case "verbs.txt":
                             returner = new Verb(wordToCheck);
                             return returner;
-                        case "Dictionary Files//articles.txt":
+                        case "articles.txt":
                             returner = new Article(wordToCheck);
                             return returner;
                         case "prepositions.txt":
                             returner = new Preposition(wordToCheck);
                             return returner;
-                        case "Dictionary Files//punctuations.txt":
+                        case "punctuations.txt":
                             returner = new Punctuation();
                             return returner;
                         default:

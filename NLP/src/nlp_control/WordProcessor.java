@@ -27,15 +27,16 @@ public class WordProcessor {
         parseInput(input);
         lp.setInput(elements);
         currentSent = lp.process();
+        respond();
 	}
 
     private void parseInput(String test) {
         String[] parsedInput = test.split(" ");//splits the user input by spaces
-        for(String s : parsedInput){
+        for(int i=0; i<parsedInput.length; i++){
             if (parsedInput.length >= 1) {
-				if (s.charAt(s.length() - 1) < 65) {//finds punctuation attached to the end of words
-					char punctuation = s.charAt(s.length() - 1);
-					s = s.substring(0, s.length() - 1) + " " + punctuation;
+				if (parsedInput[i].charAt(parsedInput[i].length() - 1) < 'A') {//finds punctuation attached to the end of words
+					char punctuation = parsedInput[i].charAt(parsedInput[i].length() - 1);
+					parsedInput[i] = parsedInput[i].substring(0, parsedInput[i].length() - 1);
 				}
 			}
         }
@@ -43,6 +44,7 @@ public class WordProcessor {
             PartOfSpeech pos = io.findInDictionary(wordToCheck);
             if(pos != null) elements.offer(pos);
             else unknowns.add(wordToCheck);
+//            System.out.println(elements);
         }
     }
     
@@ -67,12 +69,14 @@ public class WordProcessor {
     			else ci.output("I used to be a " + noun.substring(0, noun.length()-1) + " then I got lost in this computer.");
     			break;
     		case 3:
+    			ci.output("I have nothing to say about that.");
     			break;
     		case 4:
     			if(noun.charAt(noun.length()-1) != 's') ci.output("Your face is a" + noun + "!");
     			else ci.output("Your face is a" + noun.substring(0, noun.length()-1) + "!");
     			break;
     		case 5:
+    			ci.output("You're not making any sense.");
     			break;
     		case 6:
     			ci.output("Why?");

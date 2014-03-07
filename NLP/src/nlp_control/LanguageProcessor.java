@@ -24,7 +24,7 @@ public class LanguageProcessor {
 	}
 	
 	public LanguageProcessor(){
-		
+		this.stack = new Stack();
 	}
 	
 	public void setInput(LinkedList<PartOfSpeech> input) {
