@@ -23,7 +23,11 @@ public class LanguageProcessor {
 		this.inputList = input;
 	}
 	
-	private void setInput(LinkedList<PartOfSpeech> input) {
+	public LanguageProcessor(){
+		
+	}
+	
+	public void setInput(LinkedList<PartOfSpeech> input) {
 		this.inputList = input;
 	}
 	

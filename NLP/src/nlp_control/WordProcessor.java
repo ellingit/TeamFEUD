@@ -1,16 +1,20 @@
 package nlp_control;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
-import nlp_data_structure.*;
+import nlp_data_structure.FileIO;
+import nlp_data_structure.PartOfSpeech;
+import nlp_data_structure.WordStack;
 import nlp_ui.ConsoleInteraction;
 
 public class WordProcessor {
 	private WordStack ws = new WordStack();
-	private ArrayList<PartOfSpeech> elements = new ArrayList<>();
+	private LinkedList<PartOfSpeech> elements = new LinkedList<>();
 	private ArrayList<String> unknowns = new ArrayList<>();
 	private FileIO io = new FileIO();
 	private ConsoleInteraction ci = new ConsoleInteraction();
+	private LanguageProcessor lp = new LanguageProcessor();
 	private String input;
 	
 	public void run(){
@@ -18,6 +22,7 @@ public class WordProcessor {
 		ci.output("(type below to respond...)");
 		input = ci.getInput();
         parseInput(input);
+        lp.setInput(elements);
 	}
 // For testing purposes
     private void parseInput(String test) {
@@ -35,9 +40,9 @@ public class WordProcessor {
             if(pos != null) elements.add(pos);
             else unknowns.add(wordToCheck);
         }
-        for (PartOfSpeech element : elements) {
-            System.out.println(element.getType());
-        }
+//        for (PartOfSpeech element : elements) {
+//            System.out.println(element.getType());
+//        }
     }
 
     private void parseInput(){
