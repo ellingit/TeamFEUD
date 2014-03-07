@@ -13,5 +13,9 @@ public class Sentence {
 	public String toString() {
 		return np + " " + vp;
 	}
+	
+	public String getContentsByObject() {
+		return np.getContentsByObject() + " " + vp.getContentsByObject();
+	}
 
 }

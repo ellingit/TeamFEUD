@@ -10,4 +10,10 @@ public class Article extends Word {
     public String getType() {
         return "Article";
     }
+
+	@Override
+	public String getContentsByObject() {
+		// TODO Auto-generated method stub
+		return "Article(\"" + this.word + "\")";
+	}
 }

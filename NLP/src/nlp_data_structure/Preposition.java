@@ -16,7 +16,19 @@ public class Preposition extends Word {
 	}
 
 	@Override
-    public String getType() {
-        return "Preposition";
-    }
+	public String getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getContentsByObject() {
+		if (np == null) {
+			return "Preposition(\"" + this.word + "\")";
+		}
+		else {
+			return p.getContentsByObject() + " " + np.getContentsByObject();
+		}
+		
+	}
 }

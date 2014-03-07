@@ -27,4 +27,13 @@ public class NounPhrase {
 			return a + " " + n + " " + p;
 		}
 	}
+	
+	public String getContentsByObject() {
+		if (p == null) {
+			return a.getContentsByObject() + " " + n.getContentsByObject();
+		}
+		else {
+			return a.getContentsByObject() + " " + n.getContentsByObject() + " " + p.getContentsByObject();
+		}
+	}
 }

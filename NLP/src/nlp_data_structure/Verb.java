@@ -10,4 +10,10 @@ public class Verb extends Word {
     public String getType() {
         return "Verb";
     }
+
+	@Override
+	public String getContentsByObject() {
+		// TODO Auto-generated method stub
+		return "Verb(\"" + this.word + "\")";
+	}
 }

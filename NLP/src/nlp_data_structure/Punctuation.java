@@ -6,4 +6,9 @@ public class Punctuation extends PartOfSpeech {
     public String getType() {
         return "Punctuation";
     }
+
+	@Override
+	public String getContentsByObject() {
+		return null;
+	}
 }

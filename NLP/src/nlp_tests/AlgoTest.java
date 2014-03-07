@@ -33,6 +33,7 @@ public class AlgoTest {
 //		System.out.println(S.get(S.size()-2));
 		
 		lp = new LanguageProcessor(LL);
-		System.out.println(lp.process());
+		Sentence s = lp.process();
+		System.out.println(s.getContentsByObject());
 	}
 }

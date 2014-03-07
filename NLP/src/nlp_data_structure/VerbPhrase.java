@@ -22,4 +22,13 @@ public class VerbPhrase {
 			return v + " " + np;
 		}
 	}
+	
+	public String getContentsByObject() {
+		if (np == null) {
+			return v.getContentsByObject();
+		}
+		else {
+			return v.getContentsByObject() + " " + np.getContentsByObject();
+		}
+	}
 }

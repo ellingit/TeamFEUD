@@ -10,4 +10,10 @@ public class Noun extends Word {
     public String getType() {
         return "Noun";
     }
+
+	@Override
+	public String getContentsByObject() {
+		// TODO Auto-generated method stub
+		return "Noun(\"" + this.word + "\")";
+	}
 }
