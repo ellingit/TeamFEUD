@@ -17,5 +17,12 @@ public class Sentence {
 	public String getContentsByObject() {
 		return np.getContentsByObject() + " " + vp.getContentsByObject();
 	}
+	
+	public String getVP(){
+		return vp.toString();
+	}
+	public String getNP(){
+		return np.toString();
+	}
 
 }
