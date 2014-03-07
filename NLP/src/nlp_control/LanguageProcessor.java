@@ -38,7 +38,7 @@ public class LanguageProcessor {
 			while (canReduce) {
 				
 				if((stack.size() > 1) 
-						&& (stack.get(stack.size()-1)) instanceof NounPhrase 
+						&& (stack.get(stack.size()-2)) instanceof NounPhrase 
 						&& stack.peek() instanceof VerbPhrase) 
 				{
 					VerbPhrase x = (VerbPhrase)stack.pop();
@@ -46,7 +46,7 @@ public class LanguageProcessor {
 					stack.push(new Sentence(y,x));
 				}
 				else if((stack.size() > 1)
-						&& (stack.get(stack.size()-1)) instanceof Article
+						&& (stack.get(stack.size()-2)) instanceof Article
 						&& (stack.peek() instanceof Noun
 						&& !(inputList.peek() instanceof Preposition))) 
 				{
@@ -55,8 +55,8 @@ public class LanguageProcessor {
 					stack.push(new NounPhrase(y,x));
 				}
 				else if((stack.size() > 2)
-						&& (stack.get(stack.size()-2)) instanceof Article
-						&& (stack.get(stack.size()-1)) instanceof Noun
+						&& (stack.get(stack.size()-3)) instanceof Article
+						&& (stack.get(stack.size()-2)) instanceof Noun
 						&& stack.peek() instanceof Preposition) 
 				{
 					Preposition x = (Preposition)stack.pop();
@@ -72,7 +72,7 @@ public class LanguageProcessor {
 					stack.push(new VerbPhrase(x));
 				}
 				else if((stack.size() > 1) 
-						&& (stack.get(stack.size()-1)) instanceof Verb 
+						&& (stack.get(stack.size()-2)) instanceof Verb 
 						&& stack.peek() instanceof NounPhrase) 
 				{
 					NounPhrase x = (NounPhrase)stack.pop();
@@ -80,7 +80,7 @@ public class LanguageProcessor {
 					stack.push(new VerbPhrase(y,x));
 				}
 				else if((stack.size() > 1) 
-						&& (stack.get(stack.size()-1)) instanceof NounPhrase 
+						&& (stack.get(stack.size()-2)) instanceof NounPhrase 
 						&& stack.peek() instanceof Preposition)
 				{
 					Preposition x = (Preposition)stack.pop();

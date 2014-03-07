@@ -13,4 +13,13 @@ public class VerbPhrase {
 		this.v = v;
 		this.np = np;
 	}
+	
+	public String toString() {
+		if (np == null) {
+			return v.toString();
+		}
+		else {
+			return v + " " + np;
+		}
+	}
 }

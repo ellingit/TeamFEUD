@@ -9,5 +9,9 @@ public class Sentence {
 		this.np = np;
 		this.vp = vp;
 	}
+	
+	public String toString() {
+		return np + " " + vp;
+	}
 
 }

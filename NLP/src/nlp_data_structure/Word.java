@@ -6,4 +6,8 @@ public abstract class Word extends PartOfSpeech {
 	public Word(String contents){
 		word = contents;
 	}
+	
+	public String toString() {
+		return this.word;
+	}
 }

@@ -18,4 +18,13 @@ public class NounPhrase {
 		this.p = p;
 		//this.np = np;
 	}
+	
+	public String toString() {
+		if (p == null) {
+			return a + " " + n;
+		}
+		else {
+			return a + " " + n + " " + p;
+		}
+	}
 }
