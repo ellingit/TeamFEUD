@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import nlp_data_structure.FileIO;
 import nlp_data_structure.PartOfSpeech;
+import nlp_data_structure.Sentence;
 import nlp_data_structure.WordStack;
 import nlp_ui.ConsoleInteraction;
 
@@ -15,6 +16,7 @@ public class WordProcessor {
 	private FileIO io = new FileIO();
 	private ConsoleInteraction ci = new ConsoleInteraction();
 	private LanguageProcessor lp = new LanguageProcessor();
+	private Sentence currentSent;
 	private String input;
 	
 	public void run(){
@@ -23,6 +25,7 @@ public class WordProcessor {
 		input = ci.getInput();
         parseInput(input);
         lp.setInput(elements);
+        currentSent = lp.process();
 	}
 
     private void parseInput(String test) {
