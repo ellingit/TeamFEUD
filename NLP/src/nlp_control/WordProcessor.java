@@ -2,6 +2,7 @@ package nlp_control;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Random;
 
 import nlp_data_structure.FileIO;
 import nlp_data_structure.PartOfSpeech;
@@ -43,5 +44,38 @@ public class WordProcessor {
             if(pos != null) elements.offer(pos);
             else unknowns.add(wordToCheck);
         }
+    }
+    
+    private String respond(){
+    	String response = "";
+    	Random choice = new Random();
+    	if(currentSent != null){
+    		int selection = choice.nextInt(5);
+    		switch(selection){
+    		case 0:
+    			//ask noun question
+    			break;
+    		case 1:
+    			//ask verb question
+    			break;
+    		case 2:
+    			//make noun statement
+    			break;
+    		case 3:
+    			//make verb statement
+    			break;
+    		case 4:
+    			//other options...
+    			break;
+    		case 5:
+    			break;
+    		case 6:
+    			break;
+    		default:
+    			break;
+    		}
+    	}
+    	else ci.output("Talk to me.");
+    	return response;
     }
 }
