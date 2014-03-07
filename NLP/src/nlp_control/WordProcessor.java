@@ -51,25 +51,31 @@ public class WordProcessor {
     	Random choice = new Random();
     	if(currentSent != null){
     		int selection = choice.nextInt(5);
+    		String noun = currentSent.getNP();
+    		String verb = currentSent.getVP();
     		switch(selection){
     		case 0:
-    			//ask noun question
+    			if(noun.charAt(noun.length()-1) != 's') ci.output(noun + " sounds interesting. Tell me more.");
+    			else ci.output(noun + " sound interesting. Tell me more.");
     			break;
     		case 1:
-    			//ask verb question
+    			if(noun.charAt(noun.length()-1) != 's') ci.output(noun + "s are my favorite!");
+    			else ci.output(noun + " are my favorite!");
     			break;
     		case 2:
-    			//make noun statement
+    			if(noun.charAt(noun.length()-1) != 's') ci.output("I used to be a " + noun + " then I got lost in this computer.");
+    			else ci.output("I used to be a " + noun.substring(0, noun.length()-1) + " then I got lost in this computer.");
     			break;
     		case 3:
-    			//make verb statement
     			break;
     		case 4:
-    			//other options...
+    			if(noun.charAt(noun.length()-1) != 's') ci.output("Your face is a" + noun + "!");
+    			else ci.output("Your face is a" + noun.substring(0, noun.length()-1) + "!");
     			break;
     		case 5:
     			break;
     		case 6:
+    			ci.output("Why?");
     			break;
     		default:
     			break;
