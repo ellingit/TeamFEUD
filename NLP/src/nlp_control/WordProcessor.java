@@ -52,9 +52,17 @@ public class WordProcessor {
     	String response = "";
     	Random choice = new Random();
     	if(currentSent != null){
-    		int selection = choice.nextInt(5);
+    		int selection = choice.nextInt(7);
     		String noun = currentSent.getNP();
     		String verb = currentSent.getVP();
+    		String infiniteVerb = "", continuousVerb = "";
+    		if(verb.charAt(verb.length()-1) == 's'){ verb = verb.substring(0, verb.length()-1); }
+    		else if(verb.substring(verb.length()-2, verb.length()).equals("ed")){ verb = verb.substring(0, verb.length()-2); }
+    		else if(verb.substring(verb.length()-3, verb.length()).equals("ing")){ verb = verb.substring(0, verb.length()-3); }
+    		else{ 
+    			infiniteVerb = "to " + verb;
+    			continuousVerb = verb + "ing";
+    		}
     		switch(selection){
     		case 0:
     			if(noun.charAt(noun.length()-1) != 's') ci.output(noun + " sounds interesting. Tell me more.");
@@ -76,7 +84,7 @@ public class WordProcessor {
     			else ci.output("Your face is " + noun.substring(0, noun.length()-1) + "!");
     			break;
     		case 5:
-    			ci.output("You're not making any sense.");
+    			ci.output("I like " + infiniteVerb + ".");
     			break;
     		case 6:
     			ci.output("Why?");
