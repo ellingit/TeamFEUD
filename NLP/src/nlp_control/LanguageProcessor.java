@@ -59,7 +59,7 @@ public class LanguageProcessor {
 					Article y = (Article)stack.pop();
 					stack.push(new NounPhrase(y,x));
 				}
-				else if((stack.size() > 2)
+				else if((stack.size() > 2 && inputList.isEmpty())
 						&& (stack.get(stack.size()-3)) instanceof Article
 						&& (stack.get(stack.size()-2)) instanceof Noun
 						&& stack.peek() instanceof Preposition) 
@@ -85,8 +85,8 @@ public class LanguageProcessor {
 					stack.push(new VerbPhrase(y,x));
 				}
 				else if((stack.size() > 1) 
-						&& (stack.get(stack.size()-2)) instanceof NounPhrase 
-						&& stack.peek() instanceof Preposition)
+						&& (stack.get(stack.size()-2)) instanceof Preposition 
+						&& stack.peek() instanceof NounPhrase)
 				{
 					Preposition x = (Preposition)stack.pop();
 					NounPhrase y = (NounPhrase)stack.pop();
