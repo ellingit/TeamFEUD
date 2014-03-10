@@ -35,7 +35,7 @@ public class FileIO {
 			}
         }
 
-    }
+    }	
 	
     public PartOfSpeech findInDictionary(String wordToCheck) {
         PartOfSpeech returner = null;

@@ -44,7 +44,9 @@ public class WordProcessor {
             PartOfSpeech pos = io.findInDictionary(wordToCheck);
             if(pos != null) elements.offer(pos);
             else unknowns.add(wordToCheck);
-//            System.out.println(elements);
+            for (PartOfSpeech p : elements) {
+            	System.out.println(p.getContentsByObject());
+            }
         }
     }
     
