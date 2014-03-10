@@ -55,41 +55,46 @@ public class WordProcessor {
     	Random choice = new Random();
     	if(currentSent != null){
     		int selection = choice.nextInt(7);
-    		String noun = currentSent.getNP();
-    		String verb = currentSent.getVP();
+    		String nounPhrase = currentSent.getNP();
+    		String verbPhrase = currentSent.getVP();
+    		String noun = "", verb = "";
+    		if(nounPhrase.split(" ").length > 1){ noun = nounPhrase.split(" ")[1]; }
+    		if(verbPhrase.split(" ").length > 1){ verb = verbPhrase.split(" ")[1]; }
     		String infiniteVerb = "", continuousVerb = "";
-    		if(verb.charAt(verb.length()-1) == 's'){ verb = verb.substring(0, verb.length()-1); }
-    		else if(verb.substring(verb.length()-2, verb.length()).equals("ed")){ verb = verb.substring(0, verb.length()-2); }
-    		else if(verb.substring(verb.length()-3, verb.length()).equals("ing")){ verb = verb.substring(0, verb.length()-3); }
+    		if(verbPhrase.charAt(verbPhrase.length()-1) == 's'){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-1); }
+    		else if(verbPhrase.substring(verbPhrase.length()-2, verbPhrase.length()).equals("ed")){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-2); }
+    		else if(verbPhrase.substring(verbPhrase.length()-3, verbPhrase.length()).equals("ing")){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-3); }
     		else{ 
-    			infiniteVerb = "to " + verb;
-    			continuousVerb = verb + "ing";
+    			infiniteVerb = "to " + verbPhrase;
+    			if(verbPhrase.charAt(verbPhrase.length()-1) == 'e') continuousVerb = verbPhrase.substring(0, verbPhrase.length()-1) + "ing";
+    			else continuousVerb = verbPhrase + "ing";
     		}
     		switch(selection){
     		case 0:
-    			if(noun.charAt(noun.length()-1) != 's') ci.output(noun + " sounds interesting. Tell me more.");
-    			else ci.output(noun + " sound interesting. Tell me more.");
+    			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output(nounPhrase + " sounds interesting. Tell me more.");
+    			else ci.output(nounPhrase + " sound interesting. Tell me more.");
     			break;
     		case 1:
     			if(noun.charAt(noun.length()-1) != 's') ci.output(noun + "s are my favorite!");
     			else ci.output(noun + " are my favorite!");
     			break;
     		case 2:
-    			if(noun.charAt(noun.length()-1) != 's') ci.output("I used to be a " + noun + " then I got lost in this computer.");
+    			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("I used to be a " + noun + " then I got lost in this computer.");
     			else ci.output("I used to be " + noun.substring(0, noun.length()-1) + " then I got lost in this computer.");
     			break;
     		case 3:
     			ci.output("I have nothing to say about that.");
     			break;
     		case 4:
-    			if(noun.charAt(noun.length()-1) != 's') ci.output("Your face is " + noun + "!");
-    			else ci.output("Your face is " + noun.substring(0, noun.length()-1) + "!");
+    			if(noun.charAt(noun.length()-1) != 's') ci.output("Your face is a " + noun + "!");
+    			else ci.output("Your face is a " + noun.substring(0, noun.length()-1) + "!");
     			break;
     		case 5:
     			ci.output("I like " + infiniteVerb + ".");
     			break;
     		case 6:
-    			ci.output("Why?");
+    			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("Why was " + nounPhrase + " " + continuousVerb + "?");
+    			else ci.output("Why were " + nounPhrase + " " + continuousVerb + "?");
     			break;
     		default:
     			break;
