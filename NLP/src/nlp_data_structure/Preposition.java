@@ -9,7 +9,7 @@ public class Preposition extends Word {
 		super(contents);
 	}
 
-    public Preposition(NounPhrase y, Preposition x) {
+    public Preposition(Preposition x, NounPhrase y) {
     	super(x.word);
 		this.p = x;
 		this.np = y;

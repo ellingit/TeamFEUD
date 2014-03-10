@@ -18,11 +18,11 @@ public class AlgoTest {
 		LL.offer(new Article("The"));
 		LL.offer(new Noun("fish"));
 		LL.offer(new Verb("chases"));
-//		LL.offer(new Article("the"));
-//		LL.offer(new Noun("dog"));
-//		LL.offer(new Preposition("with"));
-//		LL.offer(new Article("the"));
-//		LL.offer(new Noun("cat"));
+		LL.offer(new Article("the"));
+		LL.offer(new Noun("dog"));
+		LL.offer(new Preposition("with"));
+		LL.offer(new Article("the"));
+		LL.offer(new Noun("cat"));
 		
 //		System.out.println(LL);
 //		

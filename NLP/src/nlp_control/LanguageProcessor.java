@@ -88,8 +88,8 @@ public class LanguageProcessor {
 						&& (stack.get(stack.size()-2)) instanceof Preposition 
 						&& stack.peek() instanceof NounPhrase)
 				{
-					Preposition x = (Preposition)stack.pop();
-					NounPhrase y = (NounPhrase)stack.pop();
+					NounPhrase x = (NounPhrase)stack.pop();
+					Preposition y = (Preposition)stack.pop();
 					stack.push(new Preposition(y,x));
 				}
 				else {
