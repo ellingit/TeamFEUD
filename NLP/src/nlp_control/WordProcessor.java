@@ -23,7 +23,7 @@ public class WordProcessor {
 	public void run(){
 		ci.output("Hello");
 		ci.output("(type below to respond...)");
-		input = ci.getInput();
+		input = ci.getInput().toLowerCase();
         parseInput(input);
         lp.setInput(elements);
         currentSent = lp.process();
@@ -66,14 +66,14 @@ public class WordProcessor {
     			break;
     		case 2:
     			if(noun.charAt(noun.length()-1) != 's') ci.output("I used to be a " + noun + " then I got lost in this computer.");
-    			else ci.output("I used to be a " + noun.substring(0, noun.length()-1) + " then I got lost in this computer.");
+    			else ci.output("I used to be " + noun.substring(0, noun.length()-1) + " then I got lost in this computer.");
     			break;
     		case 3:
     			ci.output("I have nothing to say about that.");
     			break;
     		case 4:
-    			if(noun.charAt(noun.length()-1) != 's') ci.output("Your face is a" + noun + "!");
-    			else ci.output("Your face is a" + noun.substring(0, noun.length()-1) + "!");
+    			if(noun.charAt(noun.length()-1) != 's') ci.output("Your face is " + noun + "!");
+    			else ci.output("Your face is " + noun.substring(0, noun.length()-1) + "!");
     			break;
     		case 5:
     			ci.output("You're not making any sense.");
