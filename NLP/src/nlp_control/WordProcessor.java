@@ -14,7 +14,7 @@ public class WordProcessor {
 	private WordStack ws = new WordStack();
 	private LinkedList<PartOfSpeech> elements = new LinkedList<>();
 	private ArrayList<String> unknowns = new ArrayList<>();
-	private FileIO io = new FileIO();
+	private final FileIO io = new FileIO();
 	private ConsoleInteraction ci = new ConsoleInteraction();
 	private LanguageProcessor lp = new LanguageProcessor();
 	private Sentence currentSent;
@@ -44,9 +44,7 @@ public class WordProcessor {
             PartOfSpeech pos = io.findInDictionary(wordToCheck);
             if(pos != null) elements.offer(pos);
             else unknowns.add(wordToCheck);
-            for (PartOfSpeech p : elements){
-            	System.out.println(p.getContentsByObject());
-            }
+//            System.out.println(elements);
         }
     }
     
