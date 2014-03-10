@@ -64,7 +64,8 @@ public class WordProcessor {
     		else if(verbPhrase.substring(verbPhrase.length()-3, verbPhrase.length()).equals("ing")){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-3); }
     		else{ 
     			infiniteVerb = "to " + verbPhrase;
-    			continuousVerb = verbPhrase + "ing";
+    			if(verbPhrase.charAt(verbPhrase.length()-1) == 'e') continuousVerb = verbPhrase.substring(0, verbPhrase.length()-1) + "ing";
+    			else continuousVerb = verbPhrase + "ing";
     		}
     		switch(selection){
     		case 0:
@@ -90,7 +91,8 @@ public class WordProcessor {
     			ci.output("I like " + infiniteVerb + ".");
     			break;
     		case 6:
-    			ci.output("Why?");
+    			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("Why was " + nounPhrase + " " + continuousVerb + "?");
+    			else ci.output("Why were " + nounPhrase + " " + continuousVerb + "?");
     			break;
     		default:
     			break;
