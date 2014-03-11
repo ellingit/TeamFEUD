@@ -18,7 +18,7 @@ public class FileIO {
 	private final File[] wordTypes = new File[] {nouns, verbs, articles,
             prepositions, punctuations};
 
-	public void handleInputViaDictionary(String[] inputString) {
+	public ArrayList<PartOfSpeech> handleInputViaDictionary(String[] inputString) {
 		ArrayList<PartOfSpeech> suggestedPartsOfSpeech = new ArrayList<>();
         for (int i = 0, j = inputString.length; i < j; i++) {
             suggestedPartsOfSpeech.add(
@@ -33,8 +33,22 @@ public class FileIO {
 					suggestedPartsOfSpeech.set(i, new Noun(suggestedPartsOfSpeech.get(i).toString()));
 				}
 			}
+        	if(i >= 2) {
+            	if(suggestedPartsOfSpeech.get(i-2) instanceof Article && suggestedPartsOfSpeech.get(i-1) instanceof Noun) {
+            		if (checkNoun(suggestedPartsOfSpeech.get(i))) {
+						// When we have stand sentence order, then proceeded by a second noun
+						if (checkVerb(suggestedPartsOfSpeech.get(i))) {
+							// if the PoS is in the verbs file, not a noun (thus not being gibberish),
+							// make the false noun a verb
+							suggestedPartsOfSpeech.set(i, new Verb(
+									suggestedPartsOfSpeech.get(i).toString()));
+						}
+					}
+            	}
+        	}
         }
-
+        
+        return suggestedPartsOfSpeech;
     }	
 	
     public PartOfSpeech findInDictionary(String wordToCheck) {
@@ -70,6 +84,34 @@ public class FileIO {
             }
         }
         return returner;
+    }
+    
+    private boolean checkVerb(PartOfSpeech p) {
+    	boolean isVerb = false;
+    	try {
+    		List<String> fileAsList = Files.readAllLines(verbs.toPath(), StandardCharsets.US_ASCII);
+			 isVerb = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return isVerb;
+    }
+    
+    private boolean checkNoun(PartOfSpeech p) {
+    	boolean isNoun = false;
+    	try {
+    		List<String> fileAsList = Files.readAllLines(nouns.toPath(), StandardCharsets.US_ASCII);
+			 isNoun = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.err.println(e.getClass().getName());
+			System.err.println(e.getMessage());
+		}
+    	return isNoun;
     }
 	
 	public void append(String toAppend, String word){

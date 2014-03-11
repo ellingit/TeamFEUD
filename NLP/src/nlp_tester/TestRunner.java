@@ -3,6 +3,7 @@ package nlp_tester;
 import nlp_control.WordProcessor;
 import nlp_data_structure.FileIO;
 import nlp_data_structure.PartOfSpeech;
+import nlp_tests.ReparserForGibberishTest;
 
 /**
  * Created by Stephen on 3/5/14.
@@ -13,8 +14,8 @@ public class TestRunner {
     }
 
     static void run(){
-        fileSearcherTest();
-
+//        fileSearcherTest();
+        new ReparserForGibberishTest();
     }
 
     private static void fileSearcherTest() {
