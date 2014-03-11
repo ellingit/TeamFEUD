@@ -25,9 +25,9 @@ public class WordProcessor {
 		ci.output("(type below to respond...)");
 		input = ci.getInput().toLowerCase();
         parseInput(input);
-//        for (PartOfSpeech p : elements) {
-//        	System.out.println(p.getContentsByObject());
-//        }
+        for (PartOfSpeech p : elements) {
+        	System.out.println(p.getContentsByObject());
+        }
         lp.setInput(elements);
         currentSent = lp.process();
         respond();
@@ -43,10 +43,10 @@ public class WordProcessor {
 				}
 			}
         }
-        for(String wordToCheck : parsedInput){
-            PartOfSpeech pos = io.findInDictionary(wordToCheck);
+        ArrayList<PartOfSpeech> posArray = io.handleInputViaDictionary(parsedInput);
+        for(PartOfSpeech pos : posArray){
             if(pos != null) elements.offer(pos);
-            else unknowns.add(wordToCheck);
+//            else unknowns.add(pos.toString());
         }
     }
     

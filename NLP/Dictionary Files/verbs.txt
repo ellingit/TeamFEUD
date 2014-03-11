@@ -1159,7 +1159,7 @@ bist
 bit
 bitch
 bite
-bitt
+bites
 bitted
 bitten
 bitter
@@ -2045,6 +2045,7 @@ charring
 chart
 charter
 chase
+chases
 chased
 chasing
 chass
@@ -11986,6 +11987,7 @@ rumpled
 rumpling
 rumpus
 run
+runs
 runabout
 rung
 rupture
@@ -12698,6 +12700,7 @@ sledgehammer
 sledging
 sleek
 sleep
+sleeps
 sleeping
 sleepwalk
 sleet
