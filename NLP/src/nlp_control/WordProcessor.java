@@ -25,9 +25,9 @@ public class WordProcessor {
 		ci.output("(type below to respond...)");
 		input = ci.getInput().toLowerCase();
         parseInput(input);
-        for (PartOfSpeech p : elements) {
-        	System.out.println(p.getContentsByObject());
-        }
+//        for (PartOfSpeech p : elements) {
+//        	System.out.println(p.getContentsByObject());
+//        }
         lp.setInput(elements);
         currentSent = lp.process();
         respond();
@@ -54,12 +54,14 @@ public class WordProcessor {
     	String response = "";
     	Random choice = new Random();
     	if(currentSent != null){
-    		int selection = choice.nextInt(7);
+    		int selection = choice.nextInt(8);
     		String nounPhrase = currentSent.getNP();
     		String verbPhrase = currentSent.getVP();
     		String noun = "", verb = "";
     		if(nounPhrase.split(" ").length > 1){ noun = nounPhrase.split(" ")[1]; }
+    		else noun = nounPhrase;
     		if(verbPhrase.split(" ").length > 1){ verb = verbPhrase.split(" ")[1]; }
+    		else verb = verbPhrase;
     		String infiniteVerb = "", continuousVerb = "";
     		if(verbPhrase.charAt(verbPhrase.length()-1) == 's'){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-1); }
     		else if(verbPhrase.substring(verbPhrase.length()-2, verbPhrase.length()).equals("ed")){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-2); }
@@ -95,6 +97,10 @@ public class WordProcessor {
     		case 6:
     			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("Why was " + nounPhrase + " " + continuousVerb + "?");
     			else ci.output("Why were " + nounPhrase + " " + continuousVerb + "?");
+    			break;
+    		case 7:
+    			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("I'll " + verb + " your " + noun + "!");
+    			else ci.output("I'll " + verb + " your " + noun.substring(0, noun.length()-1) + "!");
     			break;
     		default:
     			break;
