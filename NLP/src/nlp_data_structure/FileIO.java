@@ -97,7 +97,7 @@ public class FileIO {
 			 isVerb = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("I don't know what " + p.toString() + " means.\nIs it meant to be a verb?");
 		}
     	return isVerb;
     }
@@ -112,8 +112,7 @@ public class FileIO {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch(Exception e) {
-			System.err.println(e.getClass().getName());
-			System.err.println(e.getMessage());
+			System.err.println("I don't know what " + p.toString() + " means.");
 		}
     	return isNoun;
     }
