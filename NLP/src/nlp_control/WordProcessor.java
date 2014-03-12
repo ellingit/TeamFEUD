@@ -18,9 +18,12 @@ public class WordProcessor {
 	private String input;
 	
 	public void run(){
-		ci.output("...");
-		input = ci.getInput().toLowerCase();
-        parseInput(input);
+		do{
+			ci.output("...");
+			input = ci.getInput().toLowerCase();
+		}
+		while(input == null || input.length() < 1);        
+		parseInput(input);
         for (PartOfSpeech p : elements) {
         	System.out.println(p.getContentsByObject());
         }

@@ -7,7 +7,8 @@ public class ConsoleInteraction {
 	private String input, output;
 	
 	public String getInput(){
-		return scanLee.nextLine();
+		if(scanLee.hasNextLine()) return scanLee.nextLine();
+		else return null;
 	}
 	public void output(String output){
 		System.out.println(output);
