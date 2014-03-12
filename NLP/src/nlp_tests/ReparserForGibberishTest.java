@@ -16,6 +16,6 @@ public class ReparserForGibberishTest {
 			for (PartOfSpeech partOfSpeech : printable) {
 				System.out.println(partOfSpeech.getContentsByObject());
 			}
-		
+        
 	}
 }
