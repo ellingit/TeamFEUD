@@ -1,7 +1,7 @@
 package nlp_tester;
 
+import nlp_control.WordWrapper;
 import nlp_control.WordProcessor;
-import nlp_data_structure.FileIO;
 import nlp_data_structure.PartOfSpeech;
 import nlp_tests.ReparserForGibberishTest;
 
@@ -21,7 +21,7 @@ public class TestRunner {
     private static void fileSearcherTest() {
         // Expected Result:
         // Console Dialogue: "noun"
-        FileIO testIO = new FileIO();
+        WordWrapper testIO = new WordWrapper();
         System.out.println(
                 testIO.findInDictionary("Dogs").getContentsByObject());
         // Actual: null print

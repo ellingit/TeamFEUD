@@ -1,4 +1,4 @@
-package nlp_data_structure;
+package nlp_control;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,7 +9,14 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileIO {
+import nlp_data_structure.Article;
+import nlp_data_structure.Noun;
+import nlp_data_structure.PartOfSpeech;
+import nlp_data_structure.Preposition;
+import nlp_data_structure.Punctuation;
+import nlp_data_structure.Verb;
+
+public class WordWrapper {
 	private final File nouns = new File("Dictionary Files//nouns.txt");
 	private final File verbs = new File("Dictionary Files//verbs.txt");
 	private final File articles = new File("Dictionary Files//articles.txt");
