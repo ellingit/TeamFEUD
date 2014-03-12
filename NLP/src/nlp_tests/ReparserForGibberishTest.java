@@ -2,11 +2,11 @@ package nlp_tests;
 
 import java.util.ArrayList;
 
-import nlp_data_structure.FileIO;
+import nlp_control.WordWrapper;
 import nlp_data_structure.PartOfSpeech;
 
 public class ReparserForGibberishTest {
-	FileIO temp = new FileIO();
+	WordWrapper temp = new WordWrapper();
 	
 	public ReparserForGibberishTest(){
 		ArrayList<PartOfSpeech> printable = 
@@ -16,6 +16,6 @@ public class ReparserForGibberishTest {
 			for (PartOfSpeech partOfSpeech : printable) {
 				System.out.println(partOfSpeech.getContentsByObject());
 			}
-		
+        
 	}
 }

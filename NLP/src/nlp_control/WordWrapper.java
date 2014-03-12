@@ -1,4 +1,4 @@
-package nlp_data_structure;
+package nlp_control;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,7 +9,14 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileIO {
+import nlp_data_structure.Article;
+import nlp_data_structure.Noun;
+import nlp_data_structure.PartOfSpeech;
+import nlp_data_structure.Preposition;
+import nlp_data_structure.Punctuation;
+import nlp_data_structure.Verb;
+
+public class WordWrapper {
 	private final File nouns = new File("Dictionary Files//nouns.txt");
 	private final File verbs = new File("Dictionary Files//verbs.txt");
 	private final File articles = new File("Dictionary Files//articles.txt");
@@ -97,7 +104,7 @@ public class FileIO {
 			 isVerb = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("I don't know what " + p.toString() + " means.\nIs it meant to be a verb?");
 		}
     	return isVerb;
     }
@@ -112,8 +119,7 @@ public class FileIO {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch(Exception e) {
-			System.err.println(e.getClass().getName());
-			System.err.println(e.getMessage());
+			System.err.println("I don't know what " + p.toString() + " means.");
 		}
     	return isNoun;
     }

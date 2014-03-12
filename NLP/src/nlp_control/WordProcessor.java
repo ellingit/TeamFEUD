@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
-import nlp_data_structure.FileIO;
 import nlp_data_structure.PartOfSpeech;
 import nlp_data_structure.Sentence;
-import nlp_data_structure.WordStack;
 import nlp_ui.ConsoleInteraction;
 
 public class WordProcessor {
 	private LinkedList<PartOfSpeech> elements = new LinkedList<>();
 	private ArrayList<String> unknowns = new ArrayList<>();
-	private final FileIO io = new FileIO();
+	private final WordWrapper io = new WordWrapper();
 	private ConsoleInteraction ci = new ConsoleInteraction();
 	private LanguageProcessor lp = new LanguageProcessor();
 	private Sentence currentSent;
