@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="12.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>2200</x>
-      <y>10</y>
-      <w>210</w>
-      <h>190</h>
+      <x>966</x>
+      <y>168</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
-    <panel_attributes>NLP::UserInnerface
+    <panel_attributes>NLP::ConsoleInteraction
 --
-
+- scanLee : Scanner
+- input : String
+- output : String
 --
-//mainMenu() : int
-chat() : String
-respond(String response) : void</panel_attributes>
++ getInput() : String
++ output(String output) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1830</x>
-      <y>0</y>
-      <w>260</w>
-      <h>190</h>
+      <x>686</x>
+      <y>168</y>
+      <w>182</w>
+      <h>133</h>
     </coordinates>
-    <panel_attributes>NLP::Controller
+    <panel_attributes>NLP::WordProcessor
 --
-words : wordStack
-uf : UserInnerface
-processor : WordProcessor
+- ws : WordStack
+- elements : LinkedList&lt;PartOfSpeech&gt;
+- unknowns : ArrayList&lt;String&gt;
+- FINAL io : FileIO
+- ci : ConsoleInteraction
+- lp : LanguageProcessor
+- currentSent : Sentence
+- input : String
 --
-+run() : void
--centrofizzle() : ArrayList&lt;String&gt; : void
--calcResponse() : void
--dicSearch(ArrayList&lt;String&gt;) : void
-+main(String[] args) : void</panel_attributes>
++ run() : void
+- parseInput(String test) : void
+- respond() : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1280</x>
-      <y>510</y>
-      <w>210</w>
-      <h>190</h>
+      <x>686</x>
+      <y>560</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>NLP::Word
 &lt;&lt;Abstract&gt;&gt;
@@ -53,537 +57,362 @@ processor : WordProcessor
 /+FINAL word : String/
 --
 /+Word(String word)/
-</panel_attributes>
+/+ getContentsByObject() : String/
+/+ toString() : String/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>240</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
+      <x>434</x>
+      <y>861</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>NLP::Noun
 --
 +FINAL word : String
 --
 +Noun(String word)
-
-
-</panel_attributes>
++ getContentsByObject() : String
++ toString() : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>490</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
+      <x>602</x>
+      <y>861</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>NLP::Verb
 --
 +FINAL word : String
 --
 +Verb(String word)
-
-</panel_attributes>
++ getContentsByObject() : String
++ toString() : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1860</x>
-      <y>240</y>
-      <w>210</w>
-      <h>190</h>
+      <x>686</x>
+      <y>336</y>
+      <w>154</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>NLP::PartOfSpeech
 &lt;&lt;abstract&gt;&gt;
 --
 --
-</panel_attributes>
+/+ getContentsByObject() : String/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1860</x>
-      <y>510</y>
-      <w>210</w>
-      <h>190</h>
+      <x>42</x>
+      <y>182</y>
+      <w>217</w>
+      <h>133</h>
     </coordinates>
-    <panel_attributes>NLP::Punctuation
+    <panel_attributes>NLP::Sentence
 --
-+punc : char
+- np : NounPhrase
+- vp : VerbPhrase
 --
-+Punctuation(char punc) : void</panel_attributes>
++ Sentence(NounPhrase np, VerbPhrase vp)
++ toString() : String
++ getContentsByObject() : String
++ getVP() : String
++ getNP() : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>2410</x>
-      <y>620</y>
+      <x>931</x>
+      <y>861</y>
       <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>NLP::Phrase
-&lt;&lt;Abstract&gt;&gt;
---
-/phrase : ArrayList&lt;Word&gt;/
---
-/getPhrase : ArrayList&lt;Word&gt;/</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>990</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
+      <h>133</h>
     </coordinates>
     <panel_attributes>NLP::Preposition
 
 --
-+FINAL word : String
++ FINAL word : String
+- p : Preposition
+- np : NounPhrase
 --
-+Preposition(String word)
-</panel_attributes>
++ Preposition(String word)
++ Preposition(Preposition p, NounPhrase np)
++ getContentsByObject() : String
++ toString() : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>740</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
+      <x>770</x>
+      <y>861</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>NLP::Article
 --
 +FINAL word : String
 --
 +Article(String word)
-
-</panel_attributes>
++ getContentsByObject() : String
++ toString() : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1230</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>NLP::Interrogative
-
---
-+FINAL word : String
---
-+Interrogative(String word)
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>1470</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>NLP::Interjection
---
-+FINAL word : String
---
-+Interjection(String word)
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>0</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>NLP::Pronoun
---
-+FINAL word : String
---
-+Pronoun(String word)
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>1940</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>NLP::Adverb
---
-+FINAL word : String
---
-+Adverb(String word)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>1720</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>NLP::Adjective
---
-+FINAL word : String
---
-+Adjective(String word)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>480</x>
-      <y>1300</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>NLP::HelperVerb
---
-+FINAL word : String
---
-+HelperVerb(String word)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>2690</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
+      <x>42</x>
+      <y>21</y>
+      <w>217</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>NLP::NounPhrase
 --
-phrase : ArrayList&lt;Word
+- a : Article
+- n : Noun
+- p : Preposition
 --
-getPhrase : ArrayList&lt;Word</panel_attributes>
++ NounPhrase(Article a, Noun n)
++ NounPhrase(Article a, Noun n, Preposition p)
++ toString : String
++ getContentsByObject : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>2450</x>
-      <y>990</y>
-      <w>210</w>
-      <h>190</h>
+      <x>42</x>
+      <y>350</y>
+      <w>217</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>NLP::VerbPhrase
 --
-phrase : ArrayList&lt;Word&gt;
+- v : Verb
+- np : NounPhrase
 --
-getPhrase : ArrrayList&lt;Word&gt;
++ VerbPhrase(Verb v)
++ VerbPhrase(NounPhrase np, Verb v)
++ getContentsByObject() : String
++ toString() : String
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>2060</x>
-      <y>80</y>
-      <w>160</w>
-      <h>60</h>
+      <x>847</x>
+      <y>224</y>
+      <w>132</w>
+      <h>34</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>140;40;30;30</additional_attributes>
+    <additional_attributes>119;21;21;21</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1650</x>
-      <y>80</y>
-      <w>200</w>
-      <h>200</h>
+      <x>735</x>
+      <y>280</y>
+      <w>34</w>
+      <h>69</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;180;180;30</additional_attributes>
+    <additional_attributes>21;56;21;21</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1900</x>
-      <y>160</y>
-      <w>80</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>60;80;30;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>1890</x>
-      <y>400</y>
-      <w>130</w>
-      <h>130</h>
+      <x>707</x>
+      <y>448</y>
+      <w>92</w>
+      <h>125</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>70;30;70;110</additional_attributes>
+    <additional_attributes>49;21;49;112</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1460</x>
-      <y>360</y>
-      <w>420</w>
-      <h>230</h>
+      <x>518</x>
+      <y>672</y>
+      <w>188</w>
+      <h>202</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>400;30;30;210</additional_attributes>
+    <additional_attributes>175;21;21;189</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>2040</x>
-      <y>360</y>
-      <w>390</w>
-      <h>320</h>
+      <x>672</x>
+      <y>672</y>
+      <w>92</w>
+      <h>202</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>30;30;370;300</additional_attributes>
+    <additional_attributes>63;21;35;189</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>2440</x>
-      <y>780</y>
-      <w>140</w>
-      <h>230</h>
+      <x>735</x>
+      <y>672</y>
+      <w>91</w>
+      <h>202</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>40;30;110;210</additional_attributes>
+    <additional_attributes>35;21;70;189</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>2520</x>
-      <y>780</y>
-      <w>290</w>
-      <h>230</h>
+      <x>805</x>
+      <y>672</y>
+      <w>181</w>
+      <h>202</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>30;30;270;210</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>140</x>
-      <y>640</y>
-      <w>1160</w>
-      <h>370</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>1140;30;30;350</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>360</x>
-      <y>660</y>
-      <w>940</w>
-      <h>350</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>920;30;30;330</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>610</x>
-      <y>670</y>
-      <w>710</w>
-      <h>340</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>690;30;30;320</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>870</x>
-      <y>670</y>
-      <w>470</w>
-      <h>340</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>450;30;30;320</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>1120</x>
-      <y>670</y>
-      <w>250</w>
-      <h>340</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>230;30;30;320</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>1300</x>
-      <y>670</y>
-      <w>140</w>
-      <h>340</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>80;30;70;320</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>1400</x>
-      <y>670</y>
-      <w>190</w>
-      <h>340</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>30;30;170;320</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>1440</x>
-      <y>670</y>
-      <w>370</w>
-      <h>340</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>30;30;350;320</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>1460</x>
-      <y>630</y>
-      <w>560</w>
-      <h>380</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>30;30;540;360</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>560</x>
-      <y>1150</y>
-      <w>130</w>
-      <h>170</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>70;30;70;150</additional_attributes>
+    <additional_attributes>21;21;168;189</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>2230</x>
-      <y>240</y>
-      <w>310</w>
-      <h>250</h>
+      <x>966</x>
+      <y>336</y>
+      <w>343</w>
+      <h>175</h>
     </coordinates>
-    <panel_attributes>FileIO
+    <panel_attributes>WordWrapper
 --
-adverb: File
-adjective: File
-interjection: File
-interrogatives: File
-preposition: File
-article: File
-verb : File
-helperVerb: File
-noun : File
-pronoun: File
-punctuation: File
+- FINAL preposition: File
+- FINAL article: File
+- FINAL verb : File
+- FINAL noun : File
+- FINAL punctuation: File
+- FINAL wordTypes : File[]
 --
-writeTo(File current) : void
-surtch(File current) : boolean</panel_attributes>
++ handleInputViaDictionary(String[] inputString) : ArrayList&lt;PartOfSpeech&gt;
++ findInDictionary(String wordToCheck) : PartOfSpeech
+- checkVerb(PartOfSPeech pos) : boolean
+- checkNoun(PartOfSPeech pos) : boolean
++ append(String toAppend, String word) : void
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>2060</x>
-      <y>80</y>
-      <w>190</w>
-      <h>200</h>
+      <x>847</x>
+      <y>273</y>
+      <w>132</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>170;180;30;30</additional_attributes>
+    <additional_attributes>119;77;21;21</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1180</x>
-      <y>300</y>
-      <w>100</w>
-      <h>30</h>
+      <x>399</x>
+      <y>168</y>
+      <w>217</w>
+      <h>168</h>
     </coordinates>
-    <panel_attributes>Stack</panel_attributes>
+    <panel_attributes>NLP::LanguageProcessor
+--
+- stack : Stack
+- inputList : Queue
+--
++ LanguageProcessor()
++ setInput(LinkedList&lt;PartOfSpeech&gt;) : void
++ process() : Sentence
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1250</x>
-      <y>260</y>
-      <w>210</w>
-      <h>70</h>
+      <x>595</x>
+      <y>224</y>
+      <w>104</w>
+      <h>34</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>30;50;190;50</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;21;91;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>238</x>
+      <y>77</y>
+      <w>174</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;21;161;112</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>238</x>
+      <y>203</y>
+      <w>174</w>
+      <h>34</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;21;161;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>238</x>
+      <y>287</y>
+      <w>174</w>
+      <h>118</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;105;161;21</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1440</x>
-      <y>240</y>
-      <w>240</w>
-      <h>190</h>
+      <x>700</x>
+      <y>0</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
-    <panel_attributes>NLP::WordStack
+    <panel_attributes>NLP::Driver
+--
 
 --
---
-setenceParser() : void
-</panel_attributes>
++ static main(String[] args) : void</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>763</x>
+      <y>112</y>
+      <w>34</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;56;21;21</additional_attributes>
   </element>
 </diagram>
