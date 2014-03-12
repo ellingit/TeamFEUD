@@ -23,7 +23,7 @@ public class TestRunner {
         // Console Dialogue: "noun"
         FileIO testIO = new FileIO();
         System.out.println(
-                testIO.findInDictionary("Dogs").getType());
+                testIO.findInDictionary("Dogs").getContentsByObject());
         // Actual: null print
 
         // Expected Result:

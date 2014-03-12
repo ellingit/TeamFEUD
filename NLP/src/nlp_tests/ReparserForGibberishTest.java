@@ -14,7 +14,7 @@ public class ReparserForGibberishTest {
 //		if (printable != null) {
 			// Expect the program to return the valid collection of PoS and print their types as proofs
 			for (PartOfSpeech partOfSpeech : printable) {
-				System.out.println(partOfSpeech.getType() + " " + partOfSpeech.toString());
+				System.out.println(partOfSpeech.getContentsByObject());
 			}
 		
 	}
