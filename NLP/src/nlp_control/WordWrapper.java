@@ -112,18 +112,30 @@ public class WordWrapper {
     private boolean checkNoun(PartOfSpeech p) {
     	boolean isNoun = false;
     	try {
+    		String checker = "";
+    		char[] tempCharArray = p.toString().toCharArray();
+    		if(tempCharArray[tempCharArray.length-1] == 's'){
+    			for (int i = 0; i < tempCharArray.length - 1; i++) {
+					checker += tempCharArray[i];
+				}
+    		}
     		List<String> fileAsList = Files.readAllLines(nouns.toPath(), StandardCharsets.US_ASCII);
-			 isNoun = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s");
+			 if(check.length() > 0){
+                 isNoun = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s")
+					 || fileAsList.contains(checker);
+             } else {
+                 isNoun = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s");
+             }
+			 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch(Exception e) {
+			System.err.println("I don't know what " + p.toString() + " means.");
 		}
     	return isNoun;
-    }
-	
-	public void append(String toAppend, String word){
+    }public void append(String toAppend, String word){
 		try{
 			OutputStream fileOut = new FileOutputStream(toAppend, true);
 			fileOut.write(word.getBytes());
