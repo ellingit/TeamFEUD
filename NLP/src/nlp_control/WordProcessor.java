@@ -25,9 +25,9 @@ public class WordProcessor {
 		ci.output("(type below to respond...)");
 		input = ci.getInput().toLowerCase();
         parseInput(input);
-        for (PartOfSpeech p : elements) {
-        	System.out.println(p.getContentsByObject());
-        }
+//        for (PartOfSpeech p : elements) {
+//        	System.out.println(p.getContentsByObject());
+//        }
         lp.setInput(elements);
         currentSent = lp.process();
         respond();
@@ -60,21 +60,21 @@ public class WordProcessor {
     		String noun = "", verb = "", infiniteVerb = "", continuousVerb = "";
     		if(nounPhrase.split(" ").length > 1){ noun = nounPhrase.split(" ")[1]; }
     		else noun = nounPhrase;
-    		if(verbPhrase.split(" ").length > 1){
+    		if(verbPhrase.split(" ").length > 1){ verb = verbPhrase.split(" ")[0]; }
+    		else verb = verbPhrase;
+    		if(verb.charAt(verb.length()-1) == 's'){ verb = verb.substring(0, verb.length()-1); }
+    		else if(verb.substring(verb.length()-2, verb.length()).equals("ed")){ verb = verb.substring(0, verb.length()-2); }
+    		else if(verb.substring(verb.length()-3, verb.length()).equals("ing")){ verb = verb.substring(0, verb.length()-3); }
+    		else{}
+			infiniteVerb = "to " + verb;
+			if(verb.charAt(verb.length()-1) == 'e') continuousVerb = verb.substring(0, verb.length()-1) + "ing";
+			else continuousVerb = verb + "ing";
+   			if(verbPhrase.split(" ").length > 1){
     			int wordCount = verbPhrase.split(" ").length;
-    			verb = verbPhrase.split(" ")[0];
-    			if(verb.charAt(verb.length()-1) == 's'){ verb = verb.substring(0, verb.length()-1); }
-        		else if(verb.substring(verb.length()-2, verb.length()).equals("ed")){ verb = verb.substring(0, verb.length()-2); }
-        		else if(verb.substring(verb.length()-3, verb.length()).equals("ing")){ verb = verb.substring(0, verb.length()-3); }
-        		else{}
-    			infiniteVerb = "to " + verb;
-    			if(verb.charAt(verb.length()-1) == 'e') continuousVerb = verb.substring(0, verb.length()-1) + "ing";
-    			else continuousVerb = verb + "ing";
     			for(int i=1; i<wordCount; i++){
 					verb += " " + verbPhrase.split(" ")[i];
 				}
     		}
-    		else verb = verbPhrase;
     		
     		switch(selection){
     		case 0:
