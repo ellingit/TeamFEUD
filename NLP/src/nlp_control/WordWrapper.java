@@ -119,7 +119,6 @@ public class WordWrapper {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch(Exception e) {
-			System.err.println("I don't know what " + p.toString() + " means.");
 		}
     	return isNoun;
     }
