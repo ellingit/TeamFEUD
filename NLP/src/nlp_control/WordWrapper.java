@@ -120,7 +120,7 @@ public class WordWrapper {
 				}
     		}
     		List<String> fileAsList = Files.readAllLines(nouns.toPath(), StandardCharsets.US_ASCII);
-			 if(check.length() > 0){
+			 if(checker.length() > 0){
                  isNoun = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s")
 					 || fileAsList.contains(checker);
              } else {
