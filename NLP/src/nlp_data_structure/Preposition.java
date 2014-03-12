@@ -2,8 +2,8 @@ package nlp_data_structure;
 
 public class Preposition extends Word {
 	
-	Preposition p = null;
-	NounPhrase np = null;
+	private Preposition p = null;
+	private NounPhrase np = null;
 
 	public Preposition(String contents) {
 		super(contents);
