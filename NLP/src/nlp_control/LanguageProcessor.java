@@ -18,10 +18,10 @@ public class LanguageProcessor {
 	private Stack stack;
 	private Queue inputList;
 	
-	public LanguageProcessor(LinkedList<PartOfSpeech> input) {
-		this.stack = new Stack();
-		this.inputList = input;
-	}
+//	public LanguageProcessor(LinkedList<PartOfSpeech> input) {
+//		this.stack = new Stack();
+//		this.inputList = input;
+//	}
 	
 	public LanguageProcessor(){
 		this.stack = new Stack();
