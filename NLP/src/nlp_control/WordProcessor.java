@@ -57,20 +57,26 @@ public class WordProcessor {
     		int selection = choice.nextInt(8);
     		String nounPhrase = currentSent.getNP();
     		String verbPhrase = currentSent.getVP();
-    		String noun = "", verb = "";
+    		System.out.println(verbPhrase);
+    		String noun = "", verb = "", infiniteVerb = "", continuousVerb = "";
     		if(nounPhrase.split(" ").length > 1){ noun = nounPhrase.split(" ")[1]; }
     		else noun = nounPhrase;
-    		if(verbPhrase.split(" ").length > 1){ verb = verbPhrase.split(" ")[1]; }
-    		else verb = verbPhrase;
-    		String infiniteVerb = "", continuousVerb = "";
-    		if(verbPhrase.charAt(verbPhrase.length()-1) == 's'){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-1); }
-    		else if(verbPhrase.substring(verbPhrase.length()-2, verbPhrase.length()).equals("ed")){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-2); }
-    		else if(verbPhrase.substring(verbPhrase.length()-3, verbPhrase.length()).equals("ing")){ verbPhrase = verbPhrase.substring(0, verbPhrase.length()-3); }
-    		else{ 
-    			infiniteVerb = "to " + verbPhrase;
-    			if(verbPhrase.charAt(verbPhrase.length()-1) == 'e') continuousVerb = verbPhrase.substring(0, verbPhrase.length()-1) + "ing";
-    			else continuousVerb = verbPhrase + "ing";
+    		if(verbPhrase.split(" ").length > 1){
+    			int wordCount = verbPhrase.split(" ").length;
+    			verb = verbPhrase.split(" ")[0];
+    			if(verb.charAt(verb.length()-1) == 's'){ verb = verb.substring(0, verb.length()-1); }
+        		else if(verb.substring(verb.length()-2, verb.length()).equals("ed")){ verb = verb.substring(0, verb.length()-2); }
+        		else if(verb.substring(verb.length()-3, verb.length()).equals("ing")){ verb = verb.substring(0, verb.length()-3); }
+        		else{}
+    			infiniteVerb = "to " + verb;
+    			if(verb.charAt(verb.length()-1) == 'e') continuousVerb = verb.substring(0, verb.length()-1) + "ing";
+    			else continuousVerb = verb + "ing";
+    			for(int i=1; i<wordCount; i++){
+					verb += " " + verbPhrase.split(" ")[i];
+				}
     		}
+    		else verb = verbPhrase;
+    		
     		switch(selection){
     		case 0:
     			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output(nounPhrase + " sounds interesting. Tell me more.");
@@ -82,7 +88,7 @@ public class WordProcessor {
     			break;
     		case 2:
     			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("I used to be a " + noun + " then I got lost in this computer.");
-    			else ci.output("I used to be " + noun.substring(0, noun.length()-1) + " then I got lost in this computer.");
+    			else ci.output("I used to be a " + noun.substring(0, noun.length()-1) + " then I got lost in this computer.");
     			break;
     		case 3:
     			ci.output("I have nothing to say about that.");
@@ -95,12 +101,15 @@ public class WordProcessor {
     			ci.output("I like " + infiniteVerb + ".");
     			break;
     		case 6:
+    			for(int i=1; i<verbPhrase.split(" ").length; i++){
+					continuousVerb += " " + verbPhrase.split(" ")[i];
+				}
     			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("Why was " + nounPhrase + " " + continuousVerb + "?");
     			else ci.output("Why were " + nounPhrase + " " + continuousVerb + "?");
     			break;
     		case 7:
-    			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("I'll " + verb + " your " + noun + "!");
-    			else ci.output("I'll " + verb + " your " + noun.substring(0, noun.length()-1) + "!");
+    			if(nounPhrase.charAt(nounPhrase.length()-1) != 's') ci.output("I'll " + verb.split(" ")[0] + " your " + noun + "!");
+    			else ci.output("I'll " + verb.split(" ")[0] + " your " + noun.substring(0, noun.length()-1) + "!");
     			break;
     		default:
     			break;
