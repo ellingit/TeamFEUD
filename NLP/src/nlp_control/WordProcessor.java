@@ -25,9 +25,9 @@ public class WordProcessor {
 		ci.output("(type below to respond...)");
 		input = ci.getInput().toLowerCase();
         parseInput(input);
-        for (PartOfSpeech p : elements) {
-        	System.out.println(p.getContentsByObject());
-        }
+//        for (PartOfSpeech p : elements) {
+//        	System.out.println(p.getContentsByObject());
+//        }
         lp.setInput(elements);
         currentSent = lp.process();
         respond();
