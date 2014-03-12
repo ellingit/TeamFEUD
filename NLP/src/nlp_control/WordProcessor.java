@@ -57,7 +57,6 @@ public class WordProcessor {
     		int selection = choice.nextInt(8);
     		String nounPhrase = currentSent.getNP();
     		String verbPhrase = currentSent.getVP();
-    		System.out.println(verbPhrase);
     		String noun = "", verb = "", infiniteVerb = "", continuousVerb = "";
     		if(nounPhrase.split(" ").length > 1){ noun = nounPhrase.split(" ")[1]; }
     		else noun = nounPhrase;
@@ -115,7 +114,7 @@ public class WordProcessor {
     			break;
     		}
     	}
-    	else ci.output("Talk to me.");
+    	else ci.output("I don't understand.");
     	return response;
     }
 }
