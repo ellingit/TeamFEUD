@@ -21,9 +21,13 @@ public class FileIO {
 	public ArrayList<PartOfSpeech> handleInputViaDictionary(String[] inputString) {
 		ArrayList<PartOfSpeech> suggestedPartsOfSpeech = new ArrayList<>();
         for (int i = 0, j = inputString.length; i < j; i++) {
-            suggestedPartsOfSpeech.add(
+            try{
+                suggestedPartsOfSpeech.add(
                     findInDictionary(inputString[i])
-            );
+                );
+            } catch(NullPointerException e) {
+                System.err.println("The word " + inputString[i] + " as typed does not exist in the file.")
+            }
         }
 
         for (int i = 1, j = suggestedPartsOfSpeech.size(); i < j; i++) {
