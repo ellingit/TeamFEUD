@@ -26,7 +26,7 @@ public class FileIO {
                     findInDictionary(inputString[i])
                 );
             } catch(NullPointerException e) {
-                System.err.println("The word " + inputString[i] + " as typed does not exist in the file.")
+                System.err.println("The word " + inputString[i] + " as typed does not exist in the file.");
             }
         }
 
@@ -63,14 +63,14 @@ public class FileIO {
             	List<String> fileAsList = Files.readAllLines(file.toPath(), StandardCharsets.US_ASCII);
                 if(fileAsList.contains(wordToCheck) || fileAsList.contains(wordToCheck + "s")) {
                     switch (file.getName()) {
+	                    case "articles.txt":
+	                        returner = new Article(wordToCheck);
+	                        return returner;
                         case "nouns.txt":
                             returner = new Noun(wordToCheck);
                             return returner;
                         case "verbs.txt":
                             returner = new Verb(wordToCheck);
-                            return returner;
-                        case "articles.txt":
-                            returner = new Article(wordToCheck);
                             return returner;
                         case "prepositions.txt":
                             returner = new Preposition(wordToCheck);

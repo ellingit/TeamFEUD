@@ -49,12 +49,6 @@
 8vo
 9
 90
-a
-a/c
-a/o
-a/p
-a/v
-a/m
 a1c
 aa
 aaa
@@ -6423,11 +6417,6 @@ byzas
 bziers
 c
 c$cuta
-c/a
-c/d
-c/l
-c/n
-c/o
 ca
 caa
 cab
@@ -9644,12 +9633,6 @@ czerny
 czstochowa
 czur
 d
-d/a
-d/f
-d/l
-d/o
-d/p
-d/w
 da
 dab
 dactyl
@@ -20128,7 +20111,6 @@ kagi
 kagoshima
 kahaleel
 kahl
-kahl$a
 kahle
 kahler
 kahlil
@@ -40795,7 +40777,6 @@ zworykin
 zyrian
 zysk
 zz
-a
 aa
 aaerialness
 aalii
@@ -69642,7 +69623,6 @@ gapeworm
 gaposis
 gapping
 gar
-gar$a
 garage
 garambulla
 garand
