@@ -173,7 +173,6 @@ ar
 ara
 arc
 arcs
-are
 arp
 aru
 arv
@@ -92727,7 +92726,6 @@ oven
 ovenbird
 ovenware
 ovenwood
-over
 overabsorption
 overabstemiousness
 overabundance

@@ -67,8 +67,15 @@ public class WordWrapper {
         looping:
         for(File file : wordTypes) {
             try {
+            	String checker = "";
+        		char[] tempCharArray = wordToCheck.toCharArray();
+        		if(tempCharArray[tempCharArray.length-1] == 's'){
+        			for (int i = 0; i < tempCharArray.length - 1; i++) {
+    					checker += tempCharArray[i];
+    				}
+        		}
             	List<String> fileAsList = Files.readAllLines(file.toPath(), StandardCharsets.US_ASCII);
-                if(fileAsList.contains(wordToCheck) || fileAsList.contains(wordToCheck + "s")) {
+                if(fileAsList.contains(wordToCheck) || fileAsList.contains(wordToCheck + "s") || fileAsList.contains(checker)) {
                     switch (file.getName()) {
 	                    case "articles.txt":
 	                        returner = new Article(wordToCheck);
@@ -103,8 +110,7 @@ public class WordWrapper {
     		List<String> fileAsList = Files.readAllLines(verbs.toPath(), StandardCharsets.US_ASCII);
 			 isVerb = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.err.println("I don't know what " + p.toString() + " means.\nIs it meant to be a verb?");
+//			System.err.println("I don't know what " + p.toString() + " means.\nIs it meant to be a verb?");
 		}
     	return isVerb;
     }
@@ -132,7 +138,7 @@ public class WordWrapper {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch(Exception e) {
-			System.err.println("I don't know what " + p.toString() + " means.");
+//			System.err.println("I don't know what " + p.toString() + " means.");
 		}
     	return isNoun;
     }public void append(String toAppend, String word){
