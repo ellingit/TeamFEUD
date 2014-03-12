@@ -96,6 +96,9 @@ public class WordProcessor {
     			else ci.output("Your face is a " + noun.substring(0, noun.length()-1) + "!");
     			break;
     		case 5:
+    			for(int i=1; i<verbPhrase.split(" ").length; i++){
+					infiniteVerb += " " + verbPhrase.split(" ")[i];
+				}
     			ci.output("I like " + infiniteVerb + ".");
     			break;
     		case 6:

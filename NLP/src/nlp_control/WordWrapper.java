@@ -22,7 +22,7 @@ public class WordWrapper {
 	private final File articles = new File("Dictionary Files//articles.txt");
 	private final File prepositions = new File("Dictionary Files//prepositions.txt");
 	private final File punctuations = new File("Dictionary Files//punctuations.txt");
-	private final File[] wordTypes = new File[] {nouns, verbs, articles,
+	private final File[] wordTypes = new File[] {articles, verbs, nouns,
             prepositions, punctuations};
 
 	public ArrayList<PartOfSpeech> handleInputViaDictionary(String[] inputString) {
@@ -79,23 +79,24 @@ public class WordWrapper {
                     switch (file.getName()) {
 	                    case "articles.txt":
 	                        returner = new Article(wordToCheck);
-	                        return returner;
+	                        break;
                         case "nouns.txt":
                             returner = new Noun(wordToCheck);
-                            return returner;
+                            break;
                         case "verbs.txt":
                             returner = new Verb(wordToCheck);
-                            return returner;
+                            break;
                         case "prepositions.txt":
                             returner = new Preposition(wordToCheck);
-                            return returner;
+                            break;
                         case "punctuations.txt":
                             returner = new Punctuation();
-                            return returner;
+                            break;
                         default:
                         	System.out.println("nothing");
                             returner = null;
                     }
+                    return returner;
                 }
             } catch (IOException e) {
                 System.err.println(e.getLocalizedMessage());
