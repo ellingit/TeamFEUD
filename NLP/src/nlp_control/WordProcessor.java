@@ -18,6 +18,7 @@ public class WordProcessor {
 	private String input;
 	
 	public void run(){
+<<<<<<< HEAD
 		do{
 			ci.output("...");
 			input = ci.getInput().toLowerCase();
@@ -27,6 +28,14 @@ public class WordProcessor {
         for (PartOfSpeech p : elements) {
         	System.out.println(p.getContentsByObject());
         }
+=======
+		ci.output("...");
+		input = ci.getInput().toLowerCase();
+        parseInput(input);
+//        for (PartOfSpeech p : elements) {
+//        	System.out.println(p.getContentsByObject());
+//        }
+>>>>>>> 2efd5af9cf2146b3f7102fbeb2e543c963b882db
         lp.setInput(elements);
         currentSent = lp.process();
         respond();
@@ -63,7 +72,7 @@ public class WordProcessor {
     		else verb = verbPhrase;
     		if(verb.charAt(verb.length()-1) == 's'){ verb = verb.substring(0, verb.length()-1); }
     		else if(verb.substring(verb.length()-2, verb.length()).equals("ed")){ verb = verb.substring(0, verb.length()-2); }
-    		else if(verb.substring(verb.length()-3, verb.length()).equals("ing")){ verb = verb.substring(0, verb.length()-3); }
+    		else if(verb.length() > 2 && verb.substring(verb.length()-3, verb.length()).equals("ing")){ verb = verb.substring(0, verb.length()-3); }
     		else{}
 			infiniteVerb = "to " + verb;
 			if(verb.charAt(verb.length()-1) == 'e') continuousVerb = verb.substring(0, verb.length()-1) + "ing";
