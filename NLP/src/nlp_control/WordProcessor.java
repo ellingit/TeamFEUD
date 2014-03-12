@@ -11,7 +11,6 @@ import nlp_data_structure.WordStack;
 import nlp_ui.ConsoleInteraction;
 
 public class WordProcessor {
-	private WordStack ws = new WordStack();
 	private LinkedList<PartOfSpeech> elements = new LinkedList<>();
 	private ArrayList<String> unknowns = new ArrayList<>();
 	private final FileIO io = new FileIO();
@@ -21,8 +20,7 @@ public class WordProcessor {
 	private String input;
 	
 	public void run(){
-		ci.output("Hello");
-		ci.output("(type below to respond...)");
+		ci.output("...");
 		input = ci.getInput().toLowerCase();
         parseInput(input);
 //        for (PartOfSpeech p : elements) {
