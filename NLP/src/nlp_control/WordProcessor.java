@@ -18,24 +18,15 @@ public class WordProcessor {
 	private String input;
 	
 	public void run(){
-<<<<<<< HEAD
 		do{
 			ci.output("...");
 			input = ci.getInput().toLowerCase();
 		}
 		while(input == null || input.length() < 1);        
 		parseInput(input);
-        for (PartOfSpeech p : elements) {
-        	System.out.println(p.getContentsByObject());
-        }
-=======
-		ci.output("...");
-		input = ci.getInput().toLowerCase();
-        parseInput(input);
 //        for (PartOfSpeech p : elements) {
 //        	System.out.println(p.getContentsByObject());
 //        }
->>>>>>> 2efd5af9cf2146b3f7102fbeb2e543c963b882db
         lp.setInput(elements);
         currentSent = lp.process();
         respond();
