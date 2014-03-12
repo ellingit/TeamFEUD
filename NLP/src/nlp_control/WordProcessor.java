@@ -24,9 +24,9 @@ public class WordProcessor {
 		}
 		while(input == null || input.length() < 1);        
 		parseInput(input);
-        for (PartOfSpeech p : elements) {
-        	System.out.println(p.getContentsByObject());
-        }
+//        for (PartOfSpeech p : elements) {
+//        	System.out.println(p.getContentsByObject());
+//        }
         lp.setInput(elements);
         currentSent = lp.process();
         respond();
