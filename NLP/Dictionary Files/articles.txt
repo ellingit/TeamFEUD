@@ -101,3 +101,10 @@ yon
 yonder
 your
 zillion
+my
+his
+her
+their
+our
+your
+its

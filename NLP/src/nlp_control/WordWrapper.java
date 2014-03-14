@@ -142,7 +142,9 @@ public class WordWrapper {
 //			System.err.println("I don't know what " + p.toString() + " means.");
 		}
     	return isNoun;
-    }public void append(String toAppend, String word){
+    }
+    
+    public void append(String toAppend, String word){
 		try{
 			OutputStream fileOut = new FileOutputStream(toAppend, true);
 			fileOut.write(word.getBytes());
