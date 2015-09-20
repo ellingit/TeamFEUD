@@ -46,7 +46,7 @@ public class WordWrapper {
             }
         }
 
-        // FIXME: This is recursive and should be redone.
+        // FIXME: This is a recursive operation (like we learned in comp. theory) and should be redone.
         for ( int i = 1, j = suggestedPartsOfSpeech.size(); i < j; i++ ) {
             if ( suggestedPartsOfSpeech.get(i) instanceof Verb ) {
                 if ( suggestedPartsOfSpeech.get(i - 1) instanceof Article ) {
@@ -132,19 +132,25 @@ public class WordWrapper {
 
     private boolean checkNoun( PartOfSpeech p ) {
         boolean isNoun;
-        String checker = "";
-        char[] tempCharArray = p.toString().toCharArray();
+        String posAsString = p.toString();
+        String checker = posAsString.substring(0, posAsString.length() - 1);
+        // Until someone explains the below is changed, this is a substring call
+
+        // FIXME: I think this should be a "getType" call, but I can't exactly tell.
+        // FIXME: (cont'd) either way, it should be a .substring() call
+        /*char[] tempCharArray = p.toString().toCharArray();
         if ( tempCharArray[tempCharArray.length - 1] == 's' ) {
             for ( int i = 0; i < tempCharArray.length - 1; i++ ) {
                 checker += tempCharArray[i];
             }
-        }
+        }*/
+
         List<String> fileAsList = dictionary.get("nouns");
         if ( checker.length() > 0 ) {
-            isNoun = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s") || fileAsList.contains(checker);
+            isNoun = fileAsList.contains(posAsString) || fileAsList.contains(posAsString + "s") || fileAsList.contains(checker);
         }
         else {
-            isNoun = fileAsList.contains(p.toString()) || fileAsList.contains(p.toString() + "s");
+            isNoun = fileAsList.contains(posAsString) || fileAsList.contains(posAsString + "s");
         }
         return isNoun;
     }

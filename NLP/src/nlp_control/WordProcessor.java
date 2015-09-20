@@ -2,7 +2,8 @@ package nlp_control;
 
 import nlp_data_structure.PartOfSpeech;
 import nlp_data_structure.Sentence;
-import nlp_ui.ConsoleInteraction;
+import nlp_ui.ConsoleInterface;
+import nlp_ui.UserInterface;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,16 +14,24 @@ import java.util.stream.Collectors;
 public class WordProcessor {
     private static final int RESPONSE_COUNT = 8;
     private final WordWrapper io = new WordWrapper();
-    private ConsoleInteraction ci = new ConsoleInteraction();
+    private UserInterface userInterface;
     private LanguageProcessor lp;
 
     private Sentence currentSentence;
 
+    public WordProcessor() {
+        userInterface = new ConsoleInterface();
+    }
+
+    public WordProcessor(UserInterface userInterface) {
+        this.userInterface = userInterface;
+    }
+
     public void run() {
         String input;
         do {
-            ci.output("...");
-            input = ci.getInput().toLowerCase();
+            userInterface.output("...");
+            input = userInterface.getInput().toLowerCase();
         } while ( input.length() < 1 );
 
         lp = new LanguageProcessor(parseInput(input));
@@ -91,51 +100,51 @@ public class WordProcessor {
             switch (selection) {
                 case 0:
                     if ( nounPhrase.charAt(nounPhrase.length() - 1) != 's' )
-                        ci.output(nounPhrase + " sounds interesting. Tell me more.");
-                    else ci.output(nounPhrase + " sound interesting. Tell me more.");
+                        userInterface.output(nounPhrase + " sounds interesting. Tell me more.");
+                    else userInterface.output(nounPhrase + " sound interesting. Tell me more.");
                     break;
                 case 1:
-                    if ( noun.charAt(noun.length() - 1) != 's' ) ci.output(noun + "s are my favorite!");
-                    else ci.output(noun + " are my favorite!");
+                    if ( noun.charAt(noun.length() - 1) != 's' ) userInterface.output(noun + "s are my favorite!");
+                    else userInterface.output(noun + " are my favorite!");
                     break;
                 case 2:
                     if ( nounPhrase.charAt(nounPhrase.length() - 1) != 's' )
-                        ci.output("I used to be a " + noun + " then I got lost in this computer.");
+                        userInterface.output("I used to be a " + noun + " then I got lost in this computer.");
                     else
-                        ci.output("I used to be a " + noun.substring(0, noun.length() - 1) + " then I got lost in this computer.");
+                        userInterface.output("I used to be a " + noun.substring(0, noun.length() - 1) + " then I got lost in this computer.");
                     break;
                 case 3:
-                    ci.output("I have nothing to say about that.");
+                    userInterface.output("I have nothing to say about that.");
                     break;
                 case 4:
-                    if ( noun.charAt(noun.length() - 1) != 's' ) ci.output("Your face is a " + noun + "!");
-                    else ci.output("Your face is a " + noun.substring(0, noun.length() - 1) + "!");
+                    if ( noun.charAt(noun.length() - 1) != 's' ) userInterface.output("Your face is a " + noun + "!");
+                    else userInterface.output("Your face is a " + noun.substring(0, noun.length() - 1) + "!");
                     break;
                 case 5:
                     for ( int i = 1; i < verbPhraseSplit.length; i++ ) {
                         infiniteVerb += " " + verbPhraseSplit[i];
                     }
-                    ci.output("I like " + infiniteVerb + ".");
+                    userInterface.output("I like " + infiniteVerb + ".");
                     break;
                 case 6:
                     for ( int i = 1; i < verbPhraseSplit.length; i++ ) {
                         continuousVerb += " " + verbPhraseSplit[i];
                     }
                     if ( nounPhrase.charAt(nounPhrase.length() - 1) != 's' )
-                        ci.output("Why was " + nounPhrase + " " + continuousVerb + "?");
-                    else ci.output("Why were " + nounPhrase + " " + continuousVerb + "?");
+                        userInterface.output("Why was " + nounPhrase + " " + continuousVerb + "?");
+                    else userInterface.output("Why were " + nounPhrase + " " + continuousVerb + "?");
                     break;
                 case 7:
                     if ( nounPhrase.charAt(nounPhrase.length() - 1) != 's' )
-                        ci.output("I'll " + verb.split(" ")[0] + " your " + noun + "!");
+                        userInterface.output("I'll " + verb.split(" ")[0] + " your " + noun + "!");
                     else
-                        ci.output("I'll " + verb.split(" ")[0] + " your " + noun.substring(0, noun.length() - 1) + "!");
+                        userInterface.output("I'll " + verb.split(" ")[0] + " your " + noun.substring(0, noun.length() - 1) + "!");
                     break;
                 default:
                     break;
             }
         }
-        else ci.output("I don't understand.");
+        else userInterface.output("I don't understand.");
         return response;
     }
 }
