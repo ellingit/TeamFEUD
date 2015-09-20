@@ -1,27 +1,20 @@
 package nlp_control;
 
+import nlp_data_structure.*;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
-
-import nlp_data_structure.Article;
-import nlp_data_structure.Noun;
-import nlp_data_structure.NounPhrase;
-import nlp_data_structure.PartOfSpeech;
-import nlp_data_structure.Preposition;
-import nlp_data_structure.Sentence;
-import nlp_data_structure.Verb;
-import nlp_data_structure.VerbPhrase;
 
 public class LanguageProcessor {
 
 	private Stack stack;
 	private Queue inputList;
 	
-//	public LanguageProcessor(LinkedList<PartOfSpeech> input) {
-//		this.stack = new Stack();
-//		this.inputList = input;
-//	}
+	public LanguageProcessor(LinkedList<PartOfSpeech> input) {
+		this.stack = new Stack();
+		this.inputList = input;
+	}
 	
 	public LanguageProcessor(){
 		this.stack = new Stack();
