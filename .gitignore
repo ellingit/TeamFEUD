@@ -1,3 +1,6 @@
 .metadata/*
 NLP/.settings
 *.class
+*.idea
+*.iml
+
