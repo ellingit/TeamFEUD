@@ -71,6 +71,7 @@ public class WordProcessor {
             noun = nounPhraseSplit.length > 1 ? nounPhraseSplit[1] : nounPhrase;
             verb = verbPhraseSplit.length > 1 ? verbPhraseSplit[0] : verbPhrase;
 
+            // FIXME: this is not very explanatory
             if ( verb.charAt(verb.length() - 1) == 's' ) {
                 verb = verb.substring(0, verb.length() - 1);
             }
@@ -97,9 +98,12 @@ public class WordProcessor {
                 }
             }
 
+            boolean npEndsInAnS = nounPhrase.charAt(nounPhrase.length() - 1) != 's';
+
+            String singularNoun = noun.substring(0, noun.length() - 1);
             switch (selection) {
                 case 0:
-                    if ( nounPhrase.charAt(nounPhrase.length() - 1) != 's' )
+                    if ( npEndsInAnS )
                         userInterface.output(nounPhrase + " sounds interesting. Tell me more.");
                     else userInterface.output(nounPhrase + " sound interesting. Tell me more.");
                     break;
@@ -108,17 +112,17 @@ public class WordProcessor {
                     else userInterface.output(noun + " are my favorite!");
                     break;
                 case 2:
-                    if ( nounPhrase.charAt(nounPhrase.length() - 1) != 's' )
+                    if ( npEndsInAnS )
                         userInterface.output("I used to be a " + noun + " then I got lost in this computer.");
                     else
-                        userInterface.output("I used to be a " + noun.substring(0, noun.length() - 1) + " then I got lost in this computer.");
+                        userInterface.output("I used to be a " + singularNoun + " then I got lost in this computer.");
                     break;
                 case 3:
                     userInterface.output("I have nothing to say about that.");
                     break;
                 case 4:
                     if ( noun.charAt(noun.length() - 1) != 's' ) userInterface.output("Your face is a " + noun + "!");
-                    else userInterface.output("Your face is a " + noun.substring(0, noun.length() - 1) + "!");
+                    else userInterface.output("Your face is a " + singularNoun + "!");
                     break;
                 case 5:
                     for ( int i = 1; i < verbPhraseSplit.length; i++ ) {
@@ -130,17 +134,19 @@ public class WordProcessor {
                     for ( int i = 1; i < verbPhraseSplit.length; i++ ) {
                         continuousVerb += " " + verbPhraseSplit[i];
                     }
-                    if ( nounPhrase.charAt(nounPhrase.length() - 1) != 's' )
+                    if ( npEndsInAnS )
                         userInterface.output("Why was " + nounPhrase + " " + continuousVerb + "?");
                     else userInterface.output("Why were " + nounPhrase + " " + continuousVerb + "?");
                     break;
                 case 7:
-                    if ( nounPhrase.charAt(nounPhrase.length() - 1) != 's' )
-                        userInterface.output("I'll " + verb.split(" ")[0] + " your " + noun + "!");
+                    String[] verbSplit = verb.split(" ");
+                    if ( npEndsInAnS )
+                        userInterface.output("I'll " + verbSplit[0] + " your " + noun + "!");
                     else
-                        userInterface.output("I'll " + verb.split(" ")[0] + " your " + noun.substring(0, noun.length() - 1) + "!");
+                        userInterface.output("I'll " + verbSplit[0] + " your " + singularNoun + "!");
                     break;
                 default:
+                    userInterface.output(String.format("Response choice #%d was no found", selection));
                     break;
             }
         }

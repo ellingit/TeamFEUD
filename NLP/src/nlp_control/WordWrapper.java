@@ -19,7 +19,6 @@ public class WordWrapper {
     private final static File articles = new File("Dictionary Files//articles.txt");
     private final static File prepositions = new File("Dictionary Files//prepositions.txt");
     private final static File punctuations = new File("Dictionary Files//punctuations.txt");
-    private final static File[] wordTypes = new File[] { articles, verbs, nouns, prepositions, punctuations };
     private final static HashMap<String, List<String>> dictionary = new HashMap<>();
 
     static {
